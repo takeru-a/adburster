@@ -22,14 +22,18 @@
         .main3{
             position:relative;
             top:30px; left:600px
+            
         }
         .ad{
             width: 160px;
             height: auto;
+            
         }
         .ad:hover{
-            width: 250px;
-            height: auto;
+            transform:scale(1.5,1.5);
+            /*width: 250px;
+            height: auto;*/
+            
             
         }
         .close{
@@ -47,7 +51,7 @@
             transition: .2s;
             position:absolute;
 		    left:0px;
-            top: -250px;
+            top: -220px;
             margin: 0;
         }
     
@@ -55,13 +59,14 @@
             background: #333;
             border-color: #333;
             color: #FFF;
+            transform: translate(-20px,-20px);
         }
+        
     </style>
 </head>
 <body>
     <h1>GAME</h1>
     <h1 id="msg"></h1>
-    <div style="float:left">
     <span id="p1" class="main">
     <img src="./imgs/face.png" alt="ad-1" class="ad"/>
     <button id="b1" class="close">×</button>
@@ -74,7 +79,7 @@
     <img src="./imgs/face.png" alt="ad-1" class="ad"/>
     <button id="b3" class="close">×</button>
     </span>
-</div>
+
     <script src="expanding.js"></script>
 </body>
 </html>
