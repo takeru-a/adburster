@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAME</title>
+    <style>
+        body {
+            background-color: skyblue;
+        }
+        .main{
+            position:relative;
+            top:30px; left:0px
+            
+        }
+        
+        .main2{
+            position:relative;
+            top:30px; left:300px
+        }
+        .main3{
+            position:relative;
+            top:30px; left:600px
+        }
+        .ad{
+            width: 160px;
+            height: auto;
+        }
+        .ad:hover{
+            width: 250px;
+            height: auto;
+            
+        }
+        .close{
+            font-size: 100%;
+            font-weight: bold;
+            border: 1px solid rgb(15, 14, 14);
+            color: rgb(5, 5, 5);
+            display: flex;
+            justify-content: center;
+            align-items: right;
+            border-radius: 100%;
+            width: 1.3em;
+            line-height: 1.0em;
+            cursor: pointer;
+            transition: .2s;
+            position:absolute;
+		    left:0px;
+            top: -250px;
+            margin: 0;
+        }
+    
+        .close:hover{
+            background: #333;
+            border-color: #333;
+            color: #FFF;
+        }
+    </style>
+</head>
+<body>
+    <h1>GAME</h1>
+    <h1 id="msg"></h1>
+    <div style="float:left">
+    <span id="p1" class="main">
+    <img src="./imgs/face.png" alt="ad-1" class="ad"/>
+    <button id="b1" class="close">×</button>
+    </span>
+    <span id="p2" class="main2">
+    <img src="./imgs/face.png" alt="ad-1" class="ad"/>
+    <button id="b2" class="close">×</button>
+    </span>
+    <span id="p3" class="main3">
+    <img src="./imgs/face.png" alt="ad-1" class="ad"/>
+    <button id="b3" class="close">×</button>
+    </span>
+</div>
+    <script src="expanding.js"></script>
+</body>
+</html>
