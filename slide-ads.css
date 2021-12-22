@@ -34,6 +34,19 @@
     content: '\e800';
 }
 
+.checkbox{
+    height: 50%;
+    /* display: none; */
+}
+/* 
+.checkbox:checked ~ .close-btn {
+    background-color: blue;
+    display: none;
+}
+.checkbox:checked ~ .ad-img {
+    display: none;
+} */
+
 @font-face {
     font-family: 'fontello';
     src: url('./fonts/fontello.eot?22568919');
