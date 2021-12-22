@@ -10,8 +10,8 @@ let check = () =>{
 }
 
 
-let adclose = (p) => {
-    let tag = document.getElementById(p);
+let adclose = (area) => {
+    let tag = document.getElementById(area);
     tag.style.display='none';
     cnt++;
     console.log(cnt);
@@ -34,7 +34,7 @@ let button2 = document.getElementById('b2');
 let button3 = document.getElementById('b3');
 
 button1.addEventListener('click',function(){
-    adclose('p1');
+    adclose('area1');
 });
 let btn2 = 'b2'
 let picture2 = 'pc2';
@@ -42,8 +42,8 @@ button2.addEventListener('mouseover',function(){
     expand(btn2,picture2);
 });
 button2.addEventListener('click',function(){
-    adclose('p2');
+    adclose('area2');
 });
 button3.addEventListener('click',function(){
-    adclose('p3')
+    adclose('area3')
 });
