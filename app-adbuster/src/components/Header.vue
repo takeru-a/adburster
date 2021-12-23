@@ -1,5 +1,10 @@
 <template>
-  <div>
-    ヘッダー
-  </div>
+    <header>
+      ヘッダー
+    </header>
 </template>
+<style scoped>
+header {
+  font-size: 3rem;
+}
+</style>
