@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import SlideAd from "../components/game/SlideAd.vue"
 
 Vue.use(Router)
 
@@ -17,6 +18,11 @@ export default new Router({
       name: 'usage',
       component: ()=>
         import(/* webpackChunkName: "top" */"../pages/usage")
+    },
+    {
+      path: '/game/slide',
+      name: 'slide',
+      component: SlideAd
     },
   ]
 })
