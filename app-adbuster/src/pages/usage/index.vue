@@ -1,14 +1,13 @@
 <template>
   <div>
     <Header></Header>
-    <h1>テスト</h1>
-    <router-link to="/usage">使い方</router-link>
+    <h1>使い方</h1>
   </div>
 </template>
 <script>
 import Header from "../../components/Header"
 export default {
-   name: 'top',
+   name: 'usage',
    components: {
      Header
    }

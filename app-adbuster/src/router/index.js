@@ -11,6 +11,12 @@ export default new Router({
       name: 'top',
       component: ()=>
         import(/* webpackChunkName: "top" */"../pages/top")
-    }
+    },
+    {
+      path: '/usage',
+      name: 'usage',
+      component: ()=>
+        import(/* webpackChunkName: "top" */"../pages/usage")
+    },
   ]
 })
