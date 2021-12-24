@@ -5,6 +5,8 @@
     <router-link to="/usage">使い方</router-link>
     <br>
     <router-link to="/game/slide">ゲーム</router-link>
+    <br>
+    <router-link to="/game/expand">ゲーム2</router-link>
   </div>
 </template>
 <script>
