@@ -6,12 +6,8 @@
 </template>
 
 <script>
-import SlideAd from "../../components/game/SlideAd.vue"
 export default {
     name: 'slidead',
-    components: {
-        SlideAd
-    },
     methods: {
         btnClick(){
             var ad = document.getElementById("ad");
