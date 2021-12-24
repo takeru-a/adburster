@@ -1,8 +1,11 @@
 <template>
+<div>
+    <router-link to="/">home</router-link><br>
     <div class="ad" id="ad">
         <img class="ad-img" src="../../assets/imgs/ad-example.gif">
         <button class="close-btn" id="close-btn" type="button" @click="btnClick()"></button>
     </div>
+</div>
 </template>
 
 <script>

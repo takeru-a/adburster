@@ -2,7 +2,10 @@
   <div>
     <router-link to="/">home</router-link>
     <br>
+
+    <Timer></Timer>
     <h1 id="msg"></h1>
+    
     <span id="area1" class="main">
     <img src="../../assets/imgs/face.png" alt="ad-1" id="pc1" class="ad"/>
     <button id="b1" class="close" v-on:click="adclose('area1')">×</button>
@@ -18,8 +21,12 @@
   </div>
 </template>
 <script>
+import Timer from '../Timer'
 export default {
    name: 'expand',
+   components: {
+     Timer
+   },
    data(){
        return{
             NUM : 3,
@@ -30,6 +37,9 @@ export default {
     
   },
    methods: {
+       start(){
+           console.log('start!')
+       },
       check(){
         if(this.NUM===this.cnt){
           let msg = document.getElementById('msg');
