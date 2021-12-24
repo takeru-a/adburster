@@ -7,6 +7,8 @@
     <router-link to="/game/slide">ゲーム1(少し動く)</router-link>
     <br>
     <router-link to="/game/emerge">ゲーム2(浮かび上がる)</router-link>
+    <br>
+    <router-link to="/game/expand">ゲーム3(広がる)</router-link>
   </div>
 </template>
 <script>

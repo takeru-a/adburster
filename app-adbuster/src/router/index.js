@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import SlideAd from "../components/game/SlideAd.vue"
 import EmergeAd from "../components/game/EmergeAd.vue"
+import ExpandAd from '../components/game/ExpandAd.vue'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/game/emerge',
       name: 'emerge',
       component: EmergeAd
+    },
+    {
+      path: '/game/expand',
+      name: 'expand',
+      component: ExpandAd
     },
   ]
 })
