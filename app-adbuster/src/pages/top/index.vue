@@ -9,6 +9,8 @@
     <router-link to="/game/emerge">ゲーム2(浮かび上がる)</router-link>
     <br>
     <router-link to="/game/expand">ゲーム3(広がる)</router-link>
+    <br>
+    <router-link to="/game/movie">動画広告</router-link>
   </div>
 </template>
 <script>
