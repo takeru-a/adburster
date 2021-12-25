@@ -2,48 +2,82 @@
   <div>
     <router-link to="/">home</router-link>
     <br>
-
-    <Timer></Timer>
-    <h1 id="msg"></h1>
+    <button @click="start()" v-bind:disabled="isPlaying">start</button>
+    <button @click="reset()" v-bind:disabled="!isPlaying">reset</button>
+    <h1> {{ time }} 秒経過</h1>
+    <span class="point1" id="point">
+    <img src="../../assets/imgs/1s.png" alt="1s"/>
+    </span>
+    
+    <h1 id="msg" class="msg"><img src="../../assets/imgs/clear.png" alt="clear"></h1>
 
     <span id="area1" class="main">
-    <img src="../../assets/imgs/face.png" alt="ad-1" id="pc1" class="ad"/>
+    <img src="../../assets/imgs/face.png" alt="ad-1" id="pc1" class="ad"  @click="touchAd()"/>
     <button id="b1" class="close" v-on:click="adclose('area1')">×</button>
     </span>
     <span id="area2" class="main2">
-    <img src="../../assets/imgs/face.png" alt="ad-2"  id="pc2" class="ad"/>
+    <img src="../../assets/imgs/face.png" alt="ad-2"  id="pc2" class="ad" @click="touchAd()"/>
     <button id="b2" class="close" v-on:click="adclose('area2')" v-on:mouseover="expand('b2','pc2')">×</button>
     </span>
     <span id="area3" class="main3">
-    <img src="../../assets/imgs/face.png" alt="ad-3"  id="pc2" class="ad"/>
+    <img src="../../assets/imgs/face.png" alt="ad-3"  id="pc2" class="ad" @click="touchAd()"/>
     <button id="b3" class="close" v-on:click="adclose('area3')">×</button>
     </span>
   </div>
 </template>
 <script>
-import Timer from '../Timer'
 export default {
    name: 'expand',
-   components: {
-     Timer
-   },
    data(){
        return{
             NUM : 3,
             cnt : 0,
+            isPlaying : false,
+            time : 0,
+            timer:null,
        }
    },
    computed:{
     
   },
    methods: {
+       touchAd(){
+           this.addtime()
+           var tag = document.getElementById("point");
+            tag.style.visibility = 'visible'
+           setTimeout(function(){
+                tag.style.visibility = 'hidden'
+           },500)
+
+       },
+       addtime(){
+           this.time++;
+       },
+       reset(){
+            this.time = 0;
+            this.cnt = 0;
+            this.isPlaying = false
+            let msg = document.getElementById('msg');
+            msg.style.visibility='hidden';
+       },
        start(){
-           console.log('start!')
+            console.log('start!')
+            for(let i=1;i<=this.NUM;i++){
+                var area ="area"+ i
+                var tag = document.getElementById(area);
+                tag.style.visibility = 'visible'
+                tag.style.display =''
+                //tag.style.display='block';
+            }
+            this.isPlaying = true
+            this.timer = setInterval(this.addtime,1000)
        },
       check(){
         if(this.NUM===this.cnt){
           let msg = document.getElementById('msg');
-          msg.textContent="クリア！！";
+          msg.style.visibility = 'visible';
+          clearInterval(this.timer);
+          
         }
     },
       adclose(area){
@@ -75,17 +109,20 @@ export default {
         }
         .main{
             position:relative;
-            top:30px; left:0px
+            top:30px; left:0px;
+            visibility: hidden;
             
         }
         
         .main2{
             position:relative;
-            top:30px; left:300px
+            top:30px; left:300px;
+             visibility: hidden;
         }
         .main3{
             position:relative;
-            top:30px; left:600px
+            top:30px; left:600px;
+             visibility: hidden;
             
         }
         .ad{
@@ -126,4 +163,15 @@ export default {
             transform: translate(-20px,-20px);
         }
         
+        .point1{
+             visibility: hidden;
+             position:absolute;
+             top:55px; left:160px;
+        }
+        .msg{
+           position:absolute;
+            visibility: hidden;
+            top:200px; left:750px;
+            transform:scale(1.5,1.5);  
+        }
     </style>
