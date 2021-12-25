@@ -24,6 +24,18 @@ export default new Router({
         import(/* webpackChunkName: "top" */"../pages/usage")
     },
     {
+      path: '/game/select',
+      name: 'game-selct',
+      component: ()=>
+        import(/* webpackChunkName: "top" */"../pages/game/game-select")
+    },
+    {
+      path: '/game/start',
+      name: 'game-start',
+      component: ()=>
+        import(/* webpackChunkName: "top" */"../pages/game/game-start")
+    },
+    {
       path: '/game/slide',
       name: 'slide',
       component: SlideAd

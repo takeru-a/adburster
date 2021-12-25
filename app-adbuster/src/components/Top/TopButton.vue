@@ -8,6 +8,9 @@
     <router-link class="router-link" to="/play/playscreen">
         <button @click="page" class="Bigbutton">{{play}}</button>
     </router-link>
+    <router-link class="router-link" to="/game/select">
+          <button @click="page" class="Bigbutton">{{play}}</button>
+    </router-link>
   </div>
 </template>
 <script>
