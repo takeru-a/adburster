@@ -17,12 +17,7 @@ export default new Router({
       component: ()=>
         import(/* webpackChunkName: "top" */"../pages/top")
     },
-    {
-      path: '/usage',
-      name: 'usage',
-      component: ()=>
-        import(/* webpackChunkName: "top" */"../pages/usage")
-    },
+    
     {
       path: '/game/select',
       name: 'game-selct',
