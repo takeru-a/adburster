@@ -12,6 +12,7 @@ import Story4 from '../pages/story/Story4.vue'
 import Story5 from '../pages/story/Story5.vue'
 import Story6 from '../pages/story/Story6.vue'
 import Story7 from '../pages/story/Story7.vue'
+import PlayScreen from '../components/Play/PlayScreen.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -28,6 +29,18 @@ export default new Router({
       name: 'usage',
       component: ()=>
         import(/* webpackChunkName: "top" */"../pages/usage")
+    },
+    {
+      path: '/game/select',
+      name: 'game-selct',
+      component: ()=>
+        import(/* webpackChunkName: "top" */"../pages/game/game-select")
+    },
+    {
+      path: '/game/start',
+      name: 'game-start',
+      component: ()=>
+        import(/* webpackChunkName: "top" */"../pages/game/game-start")
     },
     {
       path: '/game/slide',
@@ -88,6 +101,11 @@ export default new Router({
       path: '/story7',
       name: 'story7',
       component: Story7
+    },
+    {
+      path: '/play/playscreen',
+      name: 'playscreen',
+      component: PlayScreen
     },
   ]
 })
