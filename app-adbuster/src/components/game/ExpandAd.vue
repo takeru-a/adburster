@@ -1,28 +1,31 @@
 <template>
-  <div>
+  <div class="bg">
     <router-link to="/">home</router-link>
     <br>
     <button @click="start()" v-bind:disabled="isPlaying">start</button>
     <button @click="reset()" v-bind:disabled="!isPlaying">reset</button>
-    <h1> {{ time }} 秒経過</h1>
+    <h1> {{ showtimer }} 秒経過</h1>
     <span class="point1" id="point">
     <img src="../../assets/imgs/1s.png" alt="1s"/>
     </span>
     
     <h1 id="msg" class="msg"><img src="../../assets/imgs/clear.png" alt="clear"></h1>
 
-    <span id="area1" class="main">
-    <img src="../../assets/imgs/face.png" alt="ad-1" id="pc1" class="ad"  @click="touchAd()"/>
+    <span id="area1" class="main1">
+    <img src="../../assets/imgs/Ad01.png" alt="ad-1" id="pc1" class="ad"  @click="touchAd()"/>
     <button id="b1" class="close" v-on:click="adclose('area1')">×</button>
     </span>
     <span id="area2" class="main2">
-    <img src="../../assets/imgs/face.png" alt="ad-2"  id="pc2" class="ad" @click="touchAd()"/>
+    <img src="../../assets/imgs/Ad01.png" alt="ad-2"  id="pc2" class="ad" @click="touchAd()"/>
     <button id="b2" class="close" v-on:click="adclose('area2')" v-on:mouseover="expand('b2','pc2')">×</button>
     </span>
     <span id="area3" class="main3">
-    <img src="../../assets/imgs/face.png" alt="ad-3"  id="pc2" class="ad" @click="touchAd()"/>
+    <img src="../../assets/imgs/Ad01.png" alt="ad-3"  id="pc3" class="ad" @click="touchAd()"/>
     <button id="b3" class="close" v-on:click="adclose('area3')">×</button>
     </span>
+
+    
+
   </div>
 </template>
 <script>
@@ -35,13 +38,18 @@ export default {
             isPlaying : false,
             time : 0,
             timer:null,
+            adcnt:0,
        }
    },
    computed:{
+       showtimer(){
+           return (Math.round(this.time * 100)) / 100
+       },
     
   },
    methods: {
        touchAd(){
+           this.adcnt++;
            this.addtime()
            var tag = document.getElementById("point");
             tag.style.visibility = 'visible'
@@ -50,8 +58,14 @@ export default {
            },500)
 
        },
+       createEl(){
+
+       },
        addtime(){
            this.time++;
+       },
+       countTime(){
+           this.time += 0.01
        },
        reset(){
             this.time = 0;
@@ -67,10 +81,9 @@ export default {
                 var tag = document.getElementById(area);
                 tag.style.visibility = 'visible'
                 tag.style.display =''
-                //tag.style.display='block';
             }
             this.isPlaying = true
-            this.timer = setInterval(this.addtime,1000)
+            this.timer = setInterval(this.countTime,10)
        },
       check(){
         if(this.NUM===this.cnt){
@@ -102,12 +115,11 @@ export default {
 }
 </script>
 
-
 <style scoped>
-        div {
-            background-color: skyblue;
+        .bg {
+             background-image: url("../../assets/imgs/cat.jpg");
         }
-        .main{
+        .main1{
             position:relative;
             top:30px; left:0px;
             visibility: hidden;
@@ -125,13 +137,15 @@ export default {
              visibility: hidden;
             
         }
+        
+        
         .ad{
-            width: 160px;
+            width: 420px;
             height: auto;
             
         }
         .ad:hover{
-            transform:scale(1.5,1.5);
+            transform:scale(1.3,1.3);
             /*width: 250px;
             height: auto;*/
             
@@ -166,7 +180,7 @@ export default {
         .point1{
              visibility: hidden;
              position:absolute;
-             top:55px; left:160px;
+             top:55px; left:300px;
         }
         .msg{
            position:absolute;
