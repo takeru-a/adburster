@@ -5,6 +5,13 @@ import EmergeAd from "../components/game/EmergeAd.vue"
 import ExpandAd from '../components/game/ExpandAd.vue'
 import MovieAd from '../components/game/MovieAd.vue'
 import TopButton from '../components/Top/TopButton.vue'
+import Story1 from '../pages/story/Story1.vue'
+import Story2 from '../pages/story/Story2.vue'
+import Story3 from '../pages/story/Story3.vue'
+import Story4 from '../pages/story/Story4.vue'
+import Story5 from '../pages/story/Story5.vue'
+import Story6 from '../pages/story/Story6.vue'
+import Story7 from '../pages/story/Story7.vue'
 import PlayScreen from '../components/Play/PlayScreen.vue'
 Vue.use(Router)
 
@@ -59,6 +66,41 @@ export default new Router({
       path: '/game/emerge',
       name: 'topbutton',
       component: TopButton
+    },
+    {
+      path: '/story1',
+      name: 'story1',
+      component: Story1
+    },
+    {
+      path: '/story2',
+      name: 'story2',
+      component: Story2
+    },
+    {
+      path: '/story3',
+      name: 'story3',
+      component: Story3
+    },
+    {
+      path: '/story4',
+      name: 'story4',
+      component: Story4
+    },
+    {
+      path: '/story5',
+      name: 'story5',
+      component: Story5
+    },
+    {
+      path: '/story6',
+      name: 'story6',
+      component: Story6
+    },
+    {
+      path: '/story7',
+      name: 'story7',
+      component: Story7
     },
     {
       path: '/play/playscreen',
