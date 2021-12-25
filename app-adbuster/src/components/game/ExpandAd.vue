@@ -1,5 +1,6 @@
 <template>
-  <div class="bg">
+  <div>
+      <img src="../../assets/imgs/cat.jpg" alt="back" class="back">
     <router-link to="/">home</router-link>
     <br>
     <button @click="start()" v-bind:disabled="isPlaying">start</button>
@@ -8,9 +9,13 @@
     <span class="point1" id="point">
     <img src="../../assets/imgs/1s.png" alt="1s"/>
     </span>
+    <span class="point2" id="point10">
+    <img src="../../assets/imgs/10s.png" alt="1s"/>
+    </span>
     
     <h1 id="msg" class="msg"><img src="../../assets/imgs/clear.png" alt="clear"></h1>
-
+    <img src="../../assets/imgs/face.png" alt="face" class="face" id="face" @click="touchFace()">
+    <div>
     <span id="area1" class="main1">
     <img src="../../assets/imgs/Ad01.png" alt="ad-1" id="pc1" class="ad"  @click="touchAd()"/>
     <button id="b1" class="close" v-on:click="adclose('area1')">×</button>
@@ -23,9 +28,8 @@
     <img src="../../assets/imgs/Ad01.png" alt="ad-3"  id="pc3" class="ad" @click="touchAd()"/>
     <button id="b3" class="close" v-on:click="adclose('area3')">×</button>
     </span>
-
+    </div>
     
-
   </div>
 </template>
 <script>
@@ -38,7 +42,9 @@ export default {
             isPlaying : false,
             time : 0,
             timer:null,
+            facer:null,
             adcnt:0,
+            facecnt:0,
        }
    },
    computed:{
@@ -48,6 +54,15 @@ export default {
     
   },
    methods: {
+       touchFace(){
+            var point = document.getElementById("point10");
+            point.style.visibility = 'visible'
+           setTimeout(function(){
+                point.style.visibility = 'hidden'
+           },500)
+           this.facecnt++;
+           this.time += 10
+       },
        touchAd(){
            this.adcnt++;
            this.addtime()
@@ -57,6 +72,18 @@ export default {
                 tag.style.visibility = 'hidden'
            },500)
 
+       },
+       showFace(){
+           this.facer = setInterval(() => {
+               var tag = document.getElementById("face");
+               tag.style.visibility= 'visible'
+               var x = 100;
+                var y = 100;
+                var r2 = Math.random();
+                var r1 = Math.random();
+                tag.style.top = r1 * x + "%";
+                tag.style.left = r2 * y + "%";
+           }, 1000);
        },
        createEl(){
 
@@ -84,12 +111,18 @@ export default {
             }
             this.isPlaying = true
             this.timer = setInterval(this.countTime,10)
+            this.showFace()
        },
       check(){
         if(this.NUM===this.cnt){
           let msg = document.getElementById('msg');
           msg.style.visibility = 'visible';
+           var tag = document.getElementById("face");
+            tag.style.visibility= 'hidden'
           clearInterval(this.timer);
+          clearInterval(this.facer);
+          console.log(this.adcnt)
+          console.log(this.facecnt)
           
         }
     },
@@ -118,6 +151,8 @@ export default {
 <style scoped>
         .bg {
              background-image: url("../../assets/imgs/cat.jpg");
+              width: 100%;
+            height: auto;
         }
         .main1{
             position:relative;
@@ -179,8 +214,17 @@ export default {
         
         .point1{
              visibility: hidden;
+             width: 250px;
+             height: auto;
              position:absolute;
              top:55px; left:300px;
+        }
+        .point2{
+             visibility: hidden;
+             width: 250px;
+             height: auto;
+             position:absolute;
+             top:35px; left:300px;
         }
         .msg{
            position:absolute;
@@ -188,4 +232,18 @@ export default {
             top:200px; left:750px;
             transform:scale(1.5,1.5);  
         }
+        .face{
+            position:absolute;
+            top:200px; left:750px;
+            visibility: hidden;
+            width: 250px;
+            height: auto;
+        }
+        .back {
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+  }
     </style>
