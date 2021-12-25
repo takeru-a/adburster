@@ -1,7 +1,9 @@
 <template>
   <div class="wrapper">
     <!-- クリック  @click="関数名"-->
-    <button @click="page" class="Bigbutton">{{story}}</button>
+    <router-link class="router-link" to="/story1">
+      <button @click="page" class="Bigbutton">{{story}}</button>
+    </router-link>
     <br>
     <button @click="page" class="Bigbutton">{{way}}</button>
     <br>
