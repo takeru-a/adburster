@@ -14,7 +14,7 @@
     </span>
     
     <h1 id="msg" class="msg"><img src="../../assets/imgs/clear.png" alt="clear"></h1>
-    <img src="../../assets/imgs/face.png" alt="face" class="face" id="face" @click="touchFace()">
+    
     <div>
     <span id="area1" class="main1">
     <img src="../../assets/imgs/Ad01.png" alt="ad-1" id="pc1" class="ad"  @click="touchAd()"/>
@@ -29,12 +29,20 @@
     <button id="b3" class="close" v-on:click="adclose('area3')">×</button>
     </span>
     </div>
+
+    <img src="../../assets/imgs/face.png" alt="face" class="face" id="face" @click="touchFace()">
+    <Result v-bind:ad="adcnt" v-bind:face="facecnt" v-bind:time="showtimer" class="result" id='result'></Result>
     
   </div>
 </template>
 <script>
+import Result from "../Result"
+
 export default {
    name: 'expand',
+   components: {
+       Result,
+   },
    data(){
        return{
             NUM : 3,
@@ -100,6 +108,8 @@ export default {
             this.isPlaying = false
             let msg = document.getElementById('msg');
             msg.style.visibility='hidden';
+            let result = document.getElementById('result');
+            result.style.visibility = 'hidden';
        },
        start(){
             console.log('start!')
@@ -115,15 +125,14 @@ export default {
        },
       check(){
         if(this.NUM===this.cnt){
-          let msg = document.getElementById('msg');
-          msg.style.visibility = 'visible';
-           var tag = document.getElementById("face");
+            let msg = document.getElementById('msg');
+            msg.style.visibility = 'visible';
+            var tag = document.getElementById("face");
             tag.style.visibility= 'hidden'
-          clearInterval(this.timer);
-          clearInterval(this.facer);
-          console.log(this.adcnt)
-          console.log(this.facecnt)
-          
+            clearInterval(this.timer);
+            clearInterval(this.facer);
+            let result = document.getElementById('result');
+            result.style.visibility = 'visible';
         }
     },
       adclose(area){
@@ -245,5 +254,10 @@ export default {
             position: absolute;
             z-index: -1;
             width: 100%;
-  }
+        }
+        .result{
+            position:absolute;
+            top:350px; left:560px;
+            visibility: hidden;
+            }        
     </style>
