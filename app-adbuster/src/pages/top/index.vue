@@ -10,8 +10,8 @@
     <router-link to="/game/movie">動画広告</router-link>
      <TopTitle></TopTitle>
     
-     <TopButton class="button"></TopButton>
-     <Toplay class="toplay"></Toplay>
+     <TopButton class="button" v-on:btn-click="showUsage()"></TopButton>
+     <Toplay class="toplay" id="toplay" v-on:close="close()"></Toplay>
    
     
   </div>
@@ -29,7 +29,17 @@ export default {
     TopButton,
     TopTitle,
     Toplay,
-  }
+  },
+  methods:{
+    showUsage(){
+      var tag = document.getElementById("toplay");
+      tag.style.visibility = "visible";
+    },
+    close(){
+      var tag = document.getElementById("toplay");
+      tag.style.visibility = "hidden";
+    },
+  },
 }
 
     </script>
@@ -44,7 +54,8 @@ export default {
     transform: translate(0,250px);
   }
   .toplay{
-  transform: translate(0,-250px);
+  visibility: hidden;
+  transform: translate(0,-350px);
    
   }
   

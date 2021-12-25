@@ -12,15 +12,14 @@ export default {
   name: "usage",
   methods: {
     close() {
-      var tag = document.getElementById("usage");
-      tag.style.visibility = "hidden";
+       this.$emit('close');
     }
   }
 };
 </script>
 <style scoped>
 .usage{
-/*visibility: hidden;*/
+
  position: relative;
  bottom: 0px;
 left: 540px;
