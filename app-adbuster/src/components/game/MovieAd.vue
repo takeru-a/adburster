@@ -3,7 +3,7 @@
     <h2>動画広告</h2>
     <div id="ad">
       <div id="PassageArea">{{ timerCount }}</div>
-      <div @click="btnClick" id="result"></div>
+      <div @click="btnClick" id="rs"></div>
     </div>
   </div>
 </template>
@@ -30,7 +30,7 @@ export default {
           }, 1000);
         } else {
           document.getElementById("PassageArea").innerHTML = "";
-          document.getElementById("result").innerHTML = "閉じる";
+          document.getElementById("rs").innerHTML = "閉じる";
         }
       },
       immediate: true
