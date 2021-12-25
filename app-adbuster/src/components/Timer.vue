@@ -1,25 +1,29 @@
 <template>
   <div>
 
-    <button @click="start()" v-bind:disabled="isPlaying">start</button>
+    
     <button @click="stop()" v-bind:disabled="!isPlaying">stop</button>
     <button @click="reset()" v-bind:disabled="!isPlaying">reset</button>
-    <h1> {{ time }} 秒経過</h1>
+   
 
   </div>
 </template>
 <script>
 export default {
    name: 'timer',
+   props:['start'],
    data(){
        return{
             isPlaying : false,
             time : 0,
-            timer:"",
+            timer:null,
        }
    },
    computed:{
     
+  },
+  mounted(){
+     this.start()
   },
    methods: {
        start(){
@@ -32,6 +36,7 @@ export default {
        },
        stop(){
            clearInterval(this.timer);
+           this.$emit('end', this.time);
        },
        reset(){
            this.time = 0;
