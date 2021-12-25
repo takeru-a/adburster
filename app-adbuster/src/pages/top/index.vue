@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <img class="topBackImg" src="../../assets/imgs/topBackgroundImage.svg" alt="">
+  <div class="HomeWrapper">
     <Header></Header>
     <h1>テスト</h1>
     <router-link to="/usage">使い方</router-link>
@@ -30,11 +29,10 @@ export default {
 }
 </script>
 <style scoped>
-  .topBackImg {
-    margin: 0;
-    padding: 0;
-    position: absolute;
+  .HomeWrapper {
+    background-image: url("../../assets/imgs/topBackgroundImage.svg");
+    background-size: cover;
+    min-height: 100vh;
     z-index: -1;
-    width: 100%;
   }
 </style>
