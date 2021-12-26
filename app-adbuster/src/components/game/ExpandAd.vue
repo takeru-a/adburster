@@ -1,6 +1,5 @@
 <template>
   <div>
-    <router-link to="/">home</router-link>
     <br />
     <div>
       <span id="area1" class="main1 countAd">

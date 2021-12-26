@@ -28,7 +28,7 @@
       ></ExpandAd>
       <SlideAd @countAd="countAd" ref="sl" @touch="touch()" @close="close()"></SlideAd>
       <MovieAd @countAd="countAd" ref="mo" @touch="touch()" @close="close()"></MovieAd>
-      <SpringAd ref="spring" @touch="touch()" @close="close()"></SpringAd>
+      <SpringAd @countAd="countAd" ref="spring" @touch="touch()" @close="close()"></SpringAd>
       <Result
         class="result"
         id="result1"
