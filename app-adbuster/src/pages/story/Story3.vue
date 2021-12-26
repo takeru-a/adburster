@@ -17,7 +17,7 @@
 .storyBackImg{
   margin: 0;
   padding: 0;
-  position: absolute;
+  position: relative;
   z-index: -1;
   width: 100%;
 }
@@ -29,10 +29,16 @@
   color: white;
   text-align: center;
   margin: 0;
+  position: fixed;
+  /* top: 200px; */
+  height: 600px;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
   -webkit-text-stroke: 2px black;
 }
 .s1{
-    color: black;
+    color: red;
     font-size: 70px;
 }
 .s2{
@@ -41,8 +47,13 @@
 }
 .next{
   color: white;
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
+}
+
+.body{
+  position: fixed;
+  overflow: hidden
 }
 </style>

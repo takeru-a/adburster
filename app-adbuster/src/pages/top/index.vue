@@ -8,6 +8,10 @@
     <router-link to="/game/expand">ゲーム3(広がる)</router-link>
     <br>
     <router-link to="/game/movie">動画広告</router-link>
+    <br>
+    <router-link to="/dummy">ダミー</router-link>
+     <TopTitle></TopTitle>
+
     
     <Sound ref="child"></Sound>
     <button @click="onSound(0)">TestButton</button>

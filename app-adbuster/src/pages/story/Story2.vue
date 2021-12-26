@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="body">
     <img class="storyBackImg" src="../../assets/imgs/bgStory.png" alt="">
     <!-- クリック  @click="関数名"-->
     <div class="strings">
@@ -18,7 +18,7 @@
 .storyBackImg{
   margin: 0;
   padding: 0;
-  position: absolute;
+  position: relative;
   z-index: -1;
   width: 100%;
 }
@@ -33,45 +33,60 @@
 
 .s1{
     font-size: 50px;
-    position: relative;
-    left: 30%;
+    position: fixed;
+    left: 28%;
+    top: 25%;
     margin: 0;
+    display: inline-block;
 }
 
 .s2{
-    font-size: 70px;
+    font-size: 80px;
     color: red;
-    position: relative;
-    left: 50%;
+    position: fixed;
+    left: 45%;
+    top: 30%;
     margin: 0;
+    display: inline-block;
 }
 
 .s3{
     font-size: 50px;
-    position: relative;
-    left: 70%;
+    position: fixed;
+    left: 55%;
+    top: 45%;
     margin: 0;
+    display: inline-block;
 }
 
 .s4{
-    font-size: 70px;
-    position: relative;
+    font-size: 80px;
+    position: fixed;
     left: 35%;
+    top:50%;
     margin: 0;
+    display: inline-block;
 }
 
 .s5{
     font-size: 50px;
-    position: relative;
+    position: fixed;
     left: 45%;
+    top: 62%;
     margin: 0;
+    display: inline-block;
 }
 
 .next{
   color: white;
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
+}
+
+.body{
+  position: fixed;
+  overflow: hidden
 }
 
 </style>

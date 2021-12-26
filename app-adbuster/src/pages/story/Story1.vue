@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="body">
     <img class="storyBackImg" src="../../assets/imgs/bgStory.png" alt="">
     <!-- クリック  @click="関数名"-->
     <div class="strings">
@@ -19,7 +19,7 @@
 .storyBackImg{
   margin: 0;
   padding: 0;
-  position: absolute;
+  position: relative;
   z-index: -1;
   width: 100%;
 }
@@ -30,17 +30,33 @@
   font-weight: bold;
   color: white;
   text-align: center;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 700px;
+  width: 1000px;
 }
 
 .title{
   margin: 0;
-  -webkit-text-stroke: 2px #000;
+  text-decoration: 2px underline;
+  text-decoration-color: white;
+  text-underline-offset: 10px;
+  /* text-decoration-width: 1px; */
+  -webkit-text-stroke: 1px #000;
 }
 
 .next{
   color: white;
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
 }
+
+.body{
+  position: fixed;
+  overflow: hidden;
+}
+
 </style>
