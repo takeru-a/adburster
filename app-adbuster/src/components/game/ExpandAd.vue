@@ -26,7 +26,6 @@
   </div>
 </template>
 <script>
-
 export default {
   name: "expand",
   data() {
@@ -100,6 +99,9 @@ export default {
 </script>
 
 <style scoped>
+#em {
+  display: none;
+}
 .main1 {
   position: relative;
   top: 30px;

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="sl">
     <div class="ads" id="ad1">
       <img class="ad-img" @click="touch()" :src="require(`@/assets/imgs/${random_select()}`)" />
       <button class="close-btn" id="close-btn" type="button" @click="btnClick('ad1')"></button>
@@ -31,23 +31,30 @@ export default {
   methods: {
     btnClick(area) {
       var ad = document.getElementById(area);
-      this.$emit('close');
+      this.$emit("close");
       ad.remove();
       console.log("closed");
     },
     touch() {
-      this.$emit('touch');
+      this.$emit("touch");
     },
     random_select() {
       const len_url = this.urls.length;
       const idx = Math.floor(Math.random() * len_url);
       console.log(idx);
       return this.urls[idx];
+    },
+    emerge() {
+      var em = document.getElementById("sl");
+      em.style.display = "block";
     }
   }
 };
 </script>
 <style scoped>
+#sl {
+  display: none;
+}
 #ad1 {
   position: absolute;
   top: 70%;
