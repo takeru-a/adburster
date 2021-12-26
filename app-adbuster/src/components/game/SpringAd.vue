@@ -1,8 +1,8 @@
 <template>
-  <div class="springArea">
-    <span id="area1" class="ad1">
-      <img class="mansion" src="../../assets/imgs/chirashi_mansion.png" alt="">
-      <button v-on:click="adclose('area1')" id="b1" class="closeButton">
+  <div class="springArea" id='sp'>
+    <span id="area-11" class="ad-11">
+      <img class="mansion" src="../../assets/imgs/chirashi_mansion.png" alt="p" @click="adtouch()">
+      <button v-on:click="adclose('area-11')" id="b121" class="closeButton">
         <span>×</span>
       </button>
     </span>
@@ -21,26 +21,41 @@ export default {
 
   },
   methods: {
-    adClose(id) {
+    adclose(id) {
       this.$emit('close');
       var ad = document.getElementById(id);
       ad.remove();
+      clearInterval(this.area)
     },
     adtouch() {
       this.$emit('touch');
     },
     randomSlideLeft() {
       this.area = setInterval(() => {
-        var tag = document.getElementById("area1");
+        var tag = document.getElementById("area-11");
+        var tag2 = document.getElementById("b121");
         var x = 100;
         var l1 = Math.random();
         tag.style.left = l1 * x + "%";
-      }, 1000);
+        tag2.style.left = l1 * x + "%";
+      }, 2000);
+    },
+    emerge() {
+            console.log("emerge");
+            var sp = document.getElementById("sp");
+            sp.style.display = "block";
+            this.randomSlideLeft()
+        },
+    stop(){
+      clearInterval(this.area)
     },
   }
 }
 </script>
 <style scoped>
+#sp {
+        display: none;
+    }
   .springArea {
     position: relative;
     transition: 1s;
@@ -49,8 +64,8 @@ export default {
     width: 380px;
   }
   .closeButton {
-    position: fixed;
-    top: 10px;
+    position: absolute;
+    top: 0px;
     left: 300px;
     padding: 1px;
     cursor: pointer;
@@ -65,5 +80,9 @@ export default {
     background-color: #333;
     color: #fff;
     border-color: #fff;
+  }
+  .ad-11{
+    position: absolute;
+    top: -100px;
   }
 </style>

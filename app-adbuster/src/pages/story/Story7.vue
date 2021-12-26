@@ -10,7 +10,7 @@
       <br>
       <span class="last"><span class="yatsura">やつら</span>を消せ。</span></p>
     </div>
-    <router-link class="router-link" to="/game/emerge">
+    <router-link class="router-link" to="/game/select">
           <button @click="page" class="Bigbutton">{{play}}</button>
     </router-link>
     <br>
