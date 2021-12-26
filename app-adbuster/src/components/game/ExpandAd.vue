@@ -58,7 +58,7 @@ export default {
     touchFace() {
       this.$emit("touchFace");
     },
-    touch() {
+    touchAd() {
       this.$emit("touch");
     },
     showFace() {
