@@ -1,14 +1,14 @@
 <template>
   <div id="sl">
-    <div class="ads" id="ad1">
+    <div class="ads countAd" id="ad1">
       <img class="ad-img" @click="touch()" :src="require(`@/assets/imgs/${random_select()}`)" />
       <button class="close-btn" id="close-btn" type="button" @click="btnClick('ad1')"></button>
     </div>
-    <div class="ads" id="ad2">
+    <div class="ads countAd" id="ad2">
       <img class="ad-img" @click="touch()" :src="require(`@/assets/imgs/${random_select()}`)" />
       <button class="close-btn" id="close-btn" type="button" @click="btnClick('ad2')"></button>
     </div>
-    <div class="ads" id="ad3">
+    <div class="ads countAd" id="ad3">
       <img class="ad-img" @click="touch()" :src="require(`@/assets/imgs/${random_select()}`)" />
       <button class="close-btn" id="close-btn" type="button" @click="btnClick('ad3')"></button>
     </div>
@@ -27,7 +27,8 @@ export default {
         "chirashi_mansion.png",
         "ad-university.png",
         "ad-make.png"
-      ]
+      ],
+      countAdv: 0
     };
   },
   methods: {
@@ -48,7 +49,15 @@ export default {
     emerge() {
       var em = document.getElementById("sl");
       em.style.display = "block";
+    },
+    countAd() {
+      var count = document.getElementsByClassName("countAd");
+      this.countAdv = count.length;
+      this.$emit("countAd", this.countAdv);
     }
+  },
+  mounted() {
+    this.countAd();
   }
 };
 </script>

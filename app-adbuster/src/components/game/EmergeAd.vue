@@ -1,14 +1,14 @@
 <template>
     <div id="em">
-        <div class="ad" id="ad">
+        <div class="ad countAd" id="ad">
         <img class="ad-img" @click="adtouch()" src="../../assets/imgs/ad-example.gif">
         <button class="close-btn" id="close-btn" type="button" @click="adclose('ad')"></button>
         </div>
-         <div class="ad2" id="ad22">
+         <div class="ad2 countAd" id="ad22">
         <img class="ad-img" @click="adtouch()" src="../../assets/imgs/ad-example.gif">
         <button class="close-btn" id="close-btn" type="button" @click="adclose('ad22')"></button>
         </div>
-        <div class="ad3" id="ad33">
+        <div class="ad3 countAd" id="ad33">
         <img class="ad-img" @click="adtouch()" src="../../assets/imgs/ad-example.gif">
         <button class="close-btn" id="close-btn" type="button" @click="adclose('ad33')"></button>
         </div>
@@ -19,7 +19,12 @@
 <script>
 export default {
     name: 'emergead',
-    
+    data() {
+        return {
+            countAdv: 0
+        }
+    },
+
     methods: {
         adclose(id){
             this.$emit('close');
@@ -33,7 +38,15 @@ export default {
             console.log("emerge");
             var em = document.getElementById("em");
             em.style.display = "block";
+        },
+        countAd(){
+             var count = document.getElementsByClassName("countAd");
+             this.countAdv = count.length;
+             this.$emit("countAd",this.countAdv);
         }
+    },
+    mounted() {
+        this.countAd();
     }
 }
 </script>

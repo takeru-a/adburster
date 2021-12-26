@@ -1,6 +1,6 @@
 <template>
   <div id="mo">
-    <div id="moviead">
+    <div id="moviead" class="countAd">
       <img src="../../assets/imgs/Ad02.png" alt="ad" @click="adtouch()" />
       <button class="close-btn" id="c-btn" @click="adclose('moviead')"></button>
       <p id="PassageArea" class="cnt">{{ timerCount }}秒後skip</p>
@@ -12,7 +12,8 @@ export default {
   data() {
     return {
       timerCount: 15,
-      result: String
+      result: String,
+      countAdv: 0
     };
   },
   methods: {
@@ -39,6 +40,14 @@ export default {
       em.style.display = "block";
       setInterval(this.count, 1000);
     },
+    countAd() {
+      var count = document.getElementsByClassName("countAd");
+      this.countAdv = count.length;
+      this.$emit("countAd", this.countAdv);
+    }
+  },
+  mounted() {
+    this.countAd();
   }
 };
 </script>
