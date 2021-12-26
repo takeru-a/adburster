@@ -38,6 +38,8 @@
     top: 25%;
     margin: 0;
     display: inline-block;
+    opacity: 0;
+    animation: fadein 2s ease 0s forwards;
 }
 
 .s2{
@@ -48,6 +50,8 @@
     top: 30%;
     margin: 0;
     display: inline-block;
+    opacity: 0;
+  animation: fadein 2s ease 1s forwards;
 }
 
 .s3{
@@ -57,6 +61,8 @@
     top: 45%;
     margin: 0;
     display: inline-block;
+    opacity: 0;
+  animation: fadein 2s ease 1s forwards;
 }
 
 .s4{
@@ -66,6 +72,8 @@
     top:50%;
     margin: 0;
     display: inline-block;
+    opacity: 0;
+  animation: fadein 2s ease 2s forwards;
 }
 
 .s5{
@@ -75,6 +83,12 @@
     top: 62%;
     margin: 0;
     display: inline-block;
+    opacity: 0;
+  animation: fadein 2s ease 2s forwards;
+}
+
+@keyframes fadein {
+    100% {  opacity: 1;}
 }
 
 .next{
@@ -83,6 +97,8 @@
   right: 0;
   bottom: 0;
   font-size: 30px;
+  opacity: 0;
+  animation: fadein 2s ease 3s forwards;
 }
 
 .body{

@@ -5,6 +5,8 @@
     </div>
     <div>
       <div>
+        <Sound ref="sound"></Sound>
+        <router-link class="router-link" to="/game/select"><button @click="back()">Back</button></router-link>
         <button @click="start()" v-bind:disabled="isPlaying">start</button>
         <!-- <button @click="reset()" v-bind:disabled="!isPlaying">reset</button> -->
         <h1>{{ showtimer }} 秒経過</h1>
@@ -26,6 +28,7 @@
       ></ExpandAd>
       <SlideAd @countAd="countAd" ref="sl" @touch="touch()" @close="close()"></SlideAd>
       <MovieAd @countAd="countAd" ref="mo" @touch="touch()" @close="close()"></MovieAd>
+      <SpringAd ref="spring" @touch="touch()" @close="close()"></SpringAd>
       <Result
         class="result"
         id="result1"
@@ -37,20 +40,24 @@
   </div>
 </template>
 <script>
+import Sound from "../../../components/Sound";
 import EmergeAd from "../../../components/game/EmergeAd";
 import ExpandAd from "../../../components/game/ExpandAd";
 import MovieAd from "../../../components/game/MovieAd";
 import SlideAd from "../../../components/game/SlideAd";
+import SpringAd from "../../../components/game/SpringAd"
 import Result from "../../../components/Result";
 
 export default {
   name: "gameplay",
   components: {
+    Sound,
     EmergeAd,
     ExpandAd,
     MovieAd,
     SlideAd,
-    Result
+    Result,
+    SpringAd,
   },
   data() {
     return {
@@ -69,11 +76,15 @@ export default {
     }
   },
   methods: {
+    onSound(num){
+      this.$refs.sound.sound_on(num);
+    },
     //消した広告の数をカウント
     close() {
       this.adSum++;
       console.log(this.adSum);
       this.check();
+      this.onSound(1);
     },
     //顔のダミーのカウント
     countFace() {
@@ -85,6 +96,8 @@ export default {
     touch() {
       this.adonSum++;
       this.touchAd();
+      this.onSound(0);
+
     },
     // reset() {
     //   this.time = 0;
@@ -102,6 +115,7 @@ export default {
       this.timer = setInterval(this.countTime, 10);
       this.$refs.face.showFace();
       this.$refs.face.start();
+      this.$refs.spring.randomSlideLeft();
       this.$refs.em.emerge();
       this.$refs.sl.emerge();
       this.$refs.mo.emerge();
@@ -115,6 +129,7 @@ export default {
       }, 500);
       this.faceSum++;
       this.time += 10;
+      this.onSound(0);
       this.$emit("countAd");
     },
     //広告自体を押した時のポップアップ
@@ -129,6 +144,10 @@ export default {
     },
     countTime() {
       this.time += 0.01;
+    },
+    back(){
+      this.$refs.face.faceStop();
+      this.$refs.mo.stop();
     },
     //広告を全部消した時の処理
     check() {
