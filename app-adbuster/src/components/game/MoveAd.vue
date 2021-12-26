@@ -33,7 +33,7 @@ export default {
     btnClick(area) {
       var ad = document.getElementById(area);
       this.$emit('close');
-    　//removeだとエラーになるので変えました   
+      //removeだとエラーになるので変えました   
       ad.style.visibility="hidden";
     },
     touch() {
