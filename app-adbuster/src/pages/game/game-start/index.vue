@@ -17,8 +17,8 @@
       </div>
       <EmergeAd @touch="touch()" @close="close()"></EmergeAd>
       <ExpandAd ref="face" @touchFace="touchFace()" @touch="touch()" @close="close()" @countFace="countFace()"></ExpandAd>
-      <SlideAd @touch="touch()" @close="close()"></SlideAd>
       <MovieAd @touch="touch()" @close="close()"></MovieAd>
+      <SlideAd @touch="touch()" @close="close()"></SlideAd>
       <Result
         class="result"
         id="result1"
