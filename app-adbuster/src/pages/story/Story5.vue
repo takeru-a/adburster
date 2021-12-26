@@ -3,13 +3,18 @@
     <img class="storyBackImg" src="../../assets/imgs/bgStory.png" alt="">
     <!-- クリック  @click="関数名"-->
     <p>no.2 クリック領域が変動</p>
-    <img class="frame" src="../../assets/imgs/frame3.png">
-    <video loop autoplay muted></video>
+    <div class="videoWrap">
+      <video class="video" src="../../assets/video/expand.mp4" loop autoplay muted></video>
+      <img class="frame" src="../../assets/imgs/frame3.png">
+    </div>
     <router-link class="next" to="/story6">次へ</router-link>
   </div>
 </template>
 
 <style scoped>
+.body {
+  overflow: hidden;
+}
 .storyBackImg{
   margin: 0;
   padding: 0;
@@ -17,7 +22,14 @@
   z-index: -1;
   width: 100%;
 }
-
+.video {
+  width: 800px;
+  height:550px;
+  position: absolute;
+  left: 53%;
+  top: 55%;
+  transform: translate(-50%, -80%);
+}
 p{
   font-family: "YuMincho", serif;
   font-size: 50px;
@@ -37,11 +49,12 @@ p{
 }
 
 .frame{
-  width: 60%;
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  width: 800px;
+  top: 55%;
 }
 
 .dummy-movie{

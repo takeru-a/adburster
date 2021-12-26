@@ -3,14 +3,18 @@
     <img class="storyBackImg" src="../../assets/imgs/bgStory.png" alt="">
     <!-- クリック  @click="関数名"-->
     <p>no.1 位置が移動する</p>
-    <img class="frame" src="../../assets/imgs/frame3.png">
-    <!-- <video loop autoplay muted></video> -->
-    <iframe class="dummy-movie" width="560" height="315" src="https://www.youtube.com/embed/IqKz0SfHaqI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="videoWrap">
+      <video class="video" src="../../assets/video/move.mp4" loop autoplay muted></video>
+      <img class="frame" src="../../assets/imgs/frame3.png">
+    </div>
     <router-link class="next" to="/story5">次へ</router-link>
   </div>
 </template>
 
 <style scoped>
+.body {
+  overflow: hidden;
+}
 .storyBackImg{
   margin: 0;
   padding: 0;
@@ -36,12 +40,20 @@ p{
   bottom: 0;
   font-size: 30px;
 }
+.video {
+  width: 800px;
+  height:550px;
+  position: absolute;
+  left: 53%;
+  top: 55%;
+  transform: translate(-50%, -80%);
+}
 
 .frame{
-  width: 60%;
+  width: 800px;
   position: fixed;
   left: 50%;
-  top: 50%;
+  top: 55%;
   transform: translate(-50%, -50%);
 }
 
