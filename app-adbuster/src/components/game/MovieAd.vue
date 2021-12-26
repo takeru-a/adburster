@@ -29,12 +29,10 @@ export default {
     emerge() {
       var em = document.getElementById("mo");
       em.style.display = "block";
-    }
-  },
-  watch: {
-    timerCount: {
-      handler(value) {
-        if (value > 0) {
+      this.count();
+    },
+    count() {
+      if (this.timerCount > 0) {
           setTimeout(() => {
             this.timerCount--;
           }, 1000);
@@ -42,8 +40,6 @@ export default {
           document.getElementById("PassageArea").innerHTML = "";
           document.getElementById("c-btn").innerHTML = "閉じる";
         }
-      },
-      immediate: true
     }
   }
 };
