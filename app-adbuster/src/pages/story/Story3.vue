@@ -3,10 +3,10 @@
     <img class="storyBackImg" src="../../assets/imgs/bgStory.png" alt="">
     <!-- クリック  @click="関数名"-->
     <div class="strings">
-      <p class="explain">ただ、世の中には
-      <br><span class="s1">悪質</span>なものも多く存在し
-      <br><span class="s2">禁止</span>
-      <br>された広告もある。
+      <p class="explain"><span class="tada">ただ、</span><span class="yo">世の中には</span>
+      <br><span class="akusitsu">悪質</span><span class="na">なものも多く存在し</span>
+      <br><span class="kinshi">禁止</span>
+      <br><span class="sa">された広告もある。</span>
       </p>
     </div>
     <router-link class="next" to="/Story4">次へ</router-link>
@@ -37,13 +37,34 @@
   transform: translate(-50%, -50%);
   -webkit-text-stroke: 2px black;
 }
-.s1{
-    color: red;
-    font-size: 70px;
+
+.tada{
+  opacity: 0;
+  animation: fadein 2s ease 0s forwards;
 }
-.s2{
+.yo{
+  opacity: 0;
+  animation: fadein 2s ease 1s forwards;
+}
+.akusitsu{
     color: red;
     font-size: 70px;
+    opacity: 0;
+  animation: fadein 2s ease 2s forwards;
+}
+.na{
+  opacity: 0;
+  animation: fadein 2s ease 2.5s forwards;
+}
+.kinshi{
+    color: red;
+    font-size: 70px;
+    opacity: 0;
+  animation: fadein 2s ease 3s forwards;
+}
+.sa{
+  opacity: 0;
+  animation: fadein 2s ease 3.5s forwards;
 }
 .next{
   color: white;
@@ -51,11 +72,16 @@
   right: 0;
   bottom: 0;
   font-size: 30px;
+  opacity: 0;
+  animation: fadein 2s ease 4s forwards;
 }
 
 .body{
   position: fixed;
   overflow: hidden;
   width: 100%;
+}
+@keyframes fadein {
+    100% {  opacity: 1;}
 }
 </style>
