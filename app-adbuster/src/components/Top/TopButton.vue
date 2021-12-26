@@ -7,7 +7,7 @@
     <br>
     <button @click="showtoplay()" class="Bigbutton">{{way}}</button>
     <br>
-    <router-link class="router-link" to="/game/emerge">
+    <router-link class="router-link" to="/game/select">
           <button @click="page" class="Bigbutton">{{play}}</button>
     </router-link>
   </div>
