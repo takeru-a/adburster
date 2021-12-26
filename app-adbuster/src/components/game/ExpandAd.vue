@@ -15,7 +15,6 @@
     <h1 id="msg" class="msg">
       <img src="../../assets/imgs/clear.png" alt="clear" />
     </h1>
-
     <div>
       <span id="area1" class="main1">
         <img src="../../assets/imgs/Ad01.png" alt="ad-1" id="pc1" class="ad" @click="touchAd()" />
@@ -164,11 +163,11 @@ export default {
 </script>
 
 <style scoped>
-.bg {
+/* .bg {
   background-image: url("../../assets/imgs/cat.jpg");
   width: 100%;
   height: auto;
-}
+} */
 .main1 {
   position: relative;
   top: 30px;
@@ -223,7 +222,6 @@ export default {
   color: #fff;
   transform: translate(-20px, -20px);
 }
-
 .point1 {
   visibility: hidden;
   width: 250px;
@@ -255,18 +253,18 @@ export default {
   width: 250px;
   height: auto;
 }
-.back {
+/* .back {
   margin: 0;
   padding: 0;
   position: absolute;
   z-index: -1;
   width: 100%;
-}
+} */
 .result {
-  /* position:absolute; */
-  position: relative;
+  position:absolute;
+  /* position: relative; */
   top: 350px;
-  left: 560px;
+  left: 0;
   visibility: hidden;
 }
 </style>

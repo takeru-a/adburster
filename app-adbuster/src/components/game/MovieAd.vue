@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h2>動画広告</h2>
     <div id="ad">
       <div id="PassageArea">{{ timerCount }}</div>
       <div @click="btnClick" id="rs"></div>
@@ -43,5 +42,8 @@ export default {
   width: 300px;
   height: 50px;
   border: 1px solid #000;
+}
+#rs {
+  cursor: pointer;
 }
 </style>
