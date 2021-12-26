@@ -1,16 +1,16 @@
 <template>
-  <div id="sl">
-    <div class="ads" id="ad1">
+  <div class="container">
+    <div id="move1" class="box">
       <img class="ad-img" @click="touch()" :src="require(`@/assets/imgs/${random_select()}`)" />
-      <button class="close-btn" id="close-btn" type="button" @click="btnClick('ad1')"></button>
+      <button class="close-btn" id="close-btn" type="button" @click="btnClick('move1')"></button>
     </div>
-    <div class="ads" id="ad2">
+    <div id="move2" class="box">
       <img class="ad-img" @click="touch()" :src="require(`@/assets/imgs/${random_select()}`)" />
-      <button class="close-btn" id="close-btn" type="button" @click="btnClick('ad2')"></button>
+      <button class="close-btn" id="close-btn" type="button" @click="btnClick('move2')"></button>
     </div>
-    <div class="ads" id="ad3">
+    <div id="move3" class="box">
       <img class="ad-img" @click="touch()" :src="require(`@/assets/imgs/${random_select()}`)" />
-      <button class="close-btn" id="close-btn" type="button" @click="btnClick('ad3')"></button>
+      <button class="close-btn" id="close-btn" type="button" @click="btnClick('move3')"></button>
     </div>
   </div>
 </template>
@@ -27,17 +27,19 @@ export default {
         "chirashi_mansion.png",
         "ad-university.png",
         "ad-make.png"
-      ]
+      ],
+      delay: 1200
     };
   },
   methods: {
     btnClick(area) {
       var ad = document.getElementById(area);
-      this.$emit("close");
-      ad.remove();
+      this.$emit('close');
+      //removeだとエラーになるので変えました   
+      ad.style.visibility="hidden";
     },
     touch() {
-      this.$emit("touch");
+      this.$emit('touch');
     },
     random_select() {
       const len_url = this.urls.length;
@@ -45,51 +47,37 @@ export default {
       console.log(idx);
       return this.urls[idx];
     },
-    emerge() {
-      var em = document.getElementById("sl");
-      em.style.display = "block";
+    move(area){
+      var move = document.getElementById(area);
+      var x = 100;
+      var y = 100;
+      var r2 = Math.random();
+      var r1 = Math.random();
+      move.style.top = r1 * x + "%";
+      move.style.left = r2 * y + "%";
     }
+  },
+  created(){
+    setInterval(function () {
+    this.move('move1');
+    this.move('move2');
+    this.move('move3');
+    }.bind(this), this.delay);
   }
 };
+
 </script>
+
 <style scoped>
-#sl {
-  display: none;
+* {
+  margin: 0;
+  padding: 0;
 }
-#ad1 {
+.box {
+  width: 300px;
+  height: 100px;
   position: absolute;
-  top: 70%;
-  left: 20%;
-  width: 70%;
-  height: 200px;
-  transform: translate(0%, 100%);
-  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.6s;
-}
-#ad1:hover {
-  transform: translate(0, 0);
-}
-
-#ad2 {
-  position: absolute;
-  top: 0%;
-  left: 30%;
-  width: 30%;
-  transform: translate(0%, 30%);
-  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.6s;
-}
-#ad2:hover {
-  transform: translate(50%, 50%);
-}
-
-#ad3 {
-  position: absolute;
-  top: 0%;
-  width: 70%;
-  transform: translate(20px, 300px);
-  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.6s;
-}
-#ad3:hover {
-  transform: translate(-10%, 30%);
+  transition: 1s;
 }
 
 .ad-img {

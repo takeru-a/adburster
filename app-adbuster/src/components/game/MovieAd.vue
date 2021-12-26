@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div id="mo">
     <div id="moviead">
-      <img src="../../assets/imgs/Ad02.png" alt="ad" @click="adtouch()">
-      <button class="close-btn" id="c-btn"  @click="adclose('moviead')"></button>
+      <img src="../../assets/imgs/Ad02.png" alt="ad" @click="adtouch()" />
+      <button class="close-btn" id="c-btn" @click="adclose('moviead')"></button>
       <p id="PassageArea" class="cnt">{{ timerCount }}秒後skip</p>
     </div>
   </div>
@@ -18,53 +18,53 @@ export default {
   methods: {
     adclose(id) {
       var ad = document.getElementById(id);
-      console.log("click")
+      console.log("click");
       ad.remove();
+      this.$emit("close");
     },
-    adtouch(){
-      this.$emit('touch')
-      console.log('t')
-    }
-  },
-  watch: {
-    timerCount: {
-      handler(value) {
-        if (value > 0) {
-          setTimeout(() => {
-            this.timerCount--;
-          }, 1000);
-        } else {
-          document.getElementById("PassageArea").innerHTML = "";
-          document.getElementById("c-btn").innerHTML = "閉じる";
-        }
-      },
-      immediate: true
-    }
+    adtouch() {
+      this.$emit("touch");
+      console.log("t");
+    },
+    count() {
+      if (this.timerCount > 0) {
+        this.timerCount--;
+      } else {
+        document.getElementById("PassageArea").innerHTML = "";
+        document.getElementById("c-btn").innerHTML = "閉じる";
+      }
+    },
+    emerge() {
+      var em = document.getElementById("mo");
+      em.style.display = "block";
+      setInterval(this.count, 1000);
+    },
   }
 };
 </script>
 <style scoped>
+#mo {
+  display: none;
+}
 #moviead {
   width: 300px;
   height: 50px;
   border: 1px solid #000;
   position: relative;
-  
 }
-.cnt{
+.cnt {
   background-color: aquamarine;
   position: absolute;
   top: 0px;
   left: 0px;
 }
-.close-btn{
-   background-color: aquamarine;
-    position: absolute;
-    top: 0px;
-    left: 0px;
+.close-btn {
+  background-color: aquamarine;
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 #rs {
   cursor: pointer;
 }
-
 </style>

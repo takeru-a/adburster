@@ -4,6 +4,7 @@ import SlideAd from "../components/game/SlideAd.vue"
 import EmergeAd from "../components/game/EmergeAd.vue"
 import ExpandAd from '../components/game/ExpandAd.vue'
 import MovieAd from '../components/game/MovieAd.vue'
+import MoveAd from '../components/game/MoveAd.vue'
 import TopButton from '../components/Top/TopButton.vue'
 import Story1 from '../pages/story/Story1.vue'
 import Story2 from '../pages/story/Story2.vue'
@@ -58,6 +59,11 @@ export default new Router({
       path: '/game/movie',
       name: 'movie',
       component: MovieAd
+    },
+    {
+      path: '/game/move',
+      name: 'move',
+      component: MoveAd
     },
     {
       path: '/game/emerge',
