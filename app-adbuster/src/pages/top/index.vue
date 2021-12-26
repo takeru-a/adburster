@@ -8,8 +8,11 @@
     <router-link to="/game/expand">ゲーム3(広がる)</router-link>
     <br>
     <router-link to="/game/movie">動画広告</router-link>
-     <TopTitle></TopTitle>
     
+    <Sound ref="child"></Sound>
+    <button @click="onSound(0)">TestButton</button>
+
+     <TopTitle></TopTitle>
      <TopButton class="button" v-on:btn-click="showUsage()"></TopButton>
      <Toplay class="toplay" id="toplay" v-on:close="close()"></Toplay>
    
@@ -21,6 +24,7 @@
 import TopButton from "../../components/Top/TopButton";
 import TopTitle from "../../components/Top/TopTitle"
 import Toplay from "../usage/Toplay"
+import Sound from "../../components/Sound"
 
 export default {
   name: 'top',
@@ -29,8 +33,12 @@ export default {
     TopButton,
     TopTitle,
     Toplay,
+    Sound,
   },
   methods:{
+    onSound(num){
+      this.$refs.child.sound_on(num);
+    },
     showUsage(){
       var tag = document.getElementById("toplay");
       tag.style.visibility = "visible";
