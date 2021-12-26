@@ -33,7 +33,6 @@ export default {
       var ad = document.getElementById(area);
       this.$emit('close');
       ad.remove();
-      console.log("closed");
     },
     touch() {
       this.$emit('touch');

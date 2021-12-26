@@ -26,15 +26,15 @@ export default {
         "ad-example.gif",
         "chirashi_mansion.png"
       ],
-      delay: 1000
+      delay: 1200
     };
   },
   methods: {
     btnClick(area) {
       var ad = document.getElementById(area);
       this.$emit('close');
-      ad.remove();
-      console.log("closed");
+    　//removeだとエラーになるので変えました   
+      ad.style.visibility="hidden";
     },
     touch() {
       this.$emit('touch');
@@ -54,13 +54,16 @@ export default {
       move.style.top = r1 * x + "%";
       move.style.left = r2 * y + "%";
     }
+  },
+  created(){
+    setInterval(function () {
+    this.move('move1');
+    this.move('move2');
+    this.move('move3');
+    }.bind(this), this.delay);
   }
 };
-setInterval(function () {
-  this.move('move1');
-  this.move('move2');
-  this.move('move3');
-}, this.delay);
+
 </script>
 
 <style scoped>
@@ -74,5 +77,41 @@ setInterval(function () {
   height: 100px;
   position: absolute;
   transition: 1s;
+}
+
+.ad-img {
+  height: 100%;
+  width: 100%;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 200%;
+  background-color: transparent;
+  border: none;
+}
+.close-btn:hover {
+  color: red;
+}
+.close-btn:after {
+  font-family: "fontello";
+  content: "\e800";
+}
+.checkbox {
+  height: 50%;
+}
+
+@font-face {
+  font-family: "fontello";
+  src: url("../../assets/fonts/fontello.eot?22568919");
+  src: url("../../assets/fonts/fontello.eot?22568919#iefix")
+      format("embedded-opentype"),
+    url("../../assets/fonts/fontello.woff2?22568919") format("woff2"),
+    url("../../assets/fonts/fontello.woff?22568919") format("woff"),
+    url("../../assets/fonts/fontello.ttf?22568919") format("truetype"),
+    url("../../assets/fonts/fontello.svg?22568919#fontello") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
 </style>
