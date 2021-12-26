@@ -131,5 +131,6 @@ export default {
   .body{
     position: fixed;
     overflow: hidden;
+    width: 100%;
   }
 </style>

@@ -55,6 +55,7 @@
 
 .body{
   position: fixed;
-  overflow: hidden
+  overflow: hidden;
+  width: 100%;
 }
 </style>
