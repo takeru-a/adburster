@@ -25,6 +25,7 @@
       ></ExpandAd>
       <SlideAd ref="sl" @touch="touch()" @close="close()"></SlideAd>
       <MovieAd ref="mo" @touch="touch()" @close="close()"></MovieAd>
+      <SpringAd ref="spring" @touch="touch()" @close="close()"></SpringAd>
       <Result
         class="result"
         id="result1"
@@ -40,6 +41,7 @@ import EmergeAd from "../../../components/game/EmergeAd";
 import ExpandAd from "../../../components/game/ExpandAd";
 import MovieAd from "../../../components/game/MovieAd";
 import SlideAd from "../../../components/game/SlideAd";
+import SpringAd from "../../../components/game/SpringAd"
 import Result from "../../../components/Result";
 
 export default {
@@ -49,7 +51,8 @@ export default {
     ExpandAd,
     MovieAd,
     SlideAd,
-    Result
+    Result,
+    SpringAd,
   },
   data() {
     return {
@@ -100,6 +103,7 @@ export default {
       this.timer = setInterval(this.countTime, 10);
       this.$refs.face.showFace();
       this.$refs.face.start();
+      this.$refs.spring.randomSlideLeft();
       this.$refs.em.emerge();
       this.$refs.sl.emerge();
       this.$refs.mo.emerge();
