@@ -19,6 +19,7 @@
       <ExpandAd ref="face" @touchFace="touchFace()" @touch="touch()" @close="close()" @countFace="countFace()"></ExpandAd>
       <SlideAd @touch="touch()" @close="close()"></SlideAd>
       <MovieAd @touch="touch()" @close="close()"></MovieAd>
+      <SpringAd ref="spring" @touch="touch()" @close="close()"></SpringAd>
       <Result
         class="result"
         id="result1"
@@ -34,6 +35,7 @@ import EmergeAd from "../../../components/game/EmergeAd";
 import ExpandAd from "../../../components/game/ExpandAd";
 import MovieAd from "../../../components/game/MovieAd";
 import SlideAd from "../../../components/game/SlideAd";
+import SpringAd from "../../../components/game/SpringAd"
 import Result from "../../../components/Result";
 
 export default {
@@ -43,7 +45,8 @@ export default {
     ExpandAd,
     MovieAd,
     SlideAd,
-    Result
+    Result,
+    SpringAd,
   },
   data() {
     return {
@@ -94,6 +97,7 @@ export default {
       this.timer = setInterval(this.countTime, 10);
       this.$refs.face.showFace();
       this.$refs.face.start();
+      this.$refs.spring.randomSlideLeft();
     },
     //顔を押した時のポップアップ
     touchFace() {

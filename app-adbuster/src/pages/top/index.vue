@@ -10,6 +10,8 @@
     <router-link to="/game/movie">動画広告</router-link>
     <br>
     <router-link to="/dummy">ダミー</router-link>
+    <br>
+    <router-link to="/spring">ゲーム4(横から飛び出す)</router-link>
      <TopTitle></TopTitle>
 
     
