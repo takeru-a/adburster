@@ -75,8 +75,8 @@ export default {
     },
     //広告自体を触った時のカウント
     touch() {
-      this.adSum++;
-      console.log(this.adSum);
+      this.adonSum++;
+      this.touchAd();
     },
     // reset() {
     //   this.time = 0;
