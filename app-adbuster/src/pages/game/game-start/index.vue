@@ -15,10 +15,10 @@
           <img src="../../../assets/imgs/10s.png" alt="1s" />
         </span>
       </div>
-      <EmergeAd ref="face" @touchFace="touchFace()" @touch="touch()" @close="close()" @countFace="countFace()"></EmergeAd>
+      <EmergeAd @touch="touch()" @close="close()"></EmergeAd>
       <ExpandAd ref="face" @touchFace="touchFace()" @touch="touch()" @close="close()" @countFace="countFace()"></ExpandAd>
-      <SlideAd ref="face" @touchFace="touchFace()" @touch="touch()" @close="close()" @countFace="countFace()"></SlideAd>
-      <MovieAd ref="face" @touchFace="touchFace()" @touch="touch()" @close="close()" @countFace="countFace()"></MovieAd>
+      <SlideAd @touch="touch()" @close="close()"></SlideAd>
+      <MovieAd @touch="touch()" @close="close()"></MovieAd>
       <Result
         class="result"
         id="result1"
