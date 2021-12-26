@@ -17,16 +17,17 @@
           <img src="../../../assets/imgs/10s.png" alt="1s" />
         </span>
       </div>
-      <EmergeAd ref="em" @touch="touch()" @close="close()"></EmergeAd>
+      <EmergeAd ref="em" @countAd="countAd" @touch="touch()" @close="close()"></EmergeAd>
       <ExpandAd
         ref="face"
+        @countAd="countAd"
         @touchFace="touchFace()"
         @touch="touch()"
         @close="close()"
         @countFace="countFace()"
       ></ExpandAd>
-      <SlideAd ref="sl" @touch="touch()" @close="close()"></SlideAd>
-      <MovieAd ref="mo" @touch="touch()" @close="close()"></MovieAd>
+      <SlideAd @countAd="countAd" ref="sl" @touch="touch()" @close="close()"></SlideAd>
+      <MovieAd @countAd="countAd" ref="mo" @touch="touch()" @close="close()"></MovieAd>
       <SpringAd ref="spring" @touch="touch()" @close="close()"></SpringAd>
       <Result
         class="result"
@@ -64,7 +65,8 @@ export default {
       faceSum: 0,
       adonSum: 0,
       time: 0,
-      isPlaying: false
+      isPlaying: false,
+      resultCountAd: 0
     };
   },
   computed: {
@@ -149,7 +151,7 @@ export default {
     },
     //広告を全部消した時の処理
     check() {
-      if (3 === this.adSum) {
+      if(this.resultCountAd=== this.adSum) {
         this.$refs.face.faceStop();
         let msg = document.getElementById("msg");
         msg.style.visibility = "visible";
@@ -157,6 +159,12 @@ export default {
         let result = document.getElementById("result1");
         result.style.visibility = "visible";
       }
+    },
+    //components/game下のコンポーネントにあるcountAdという名前のクラスの個数をカウント
+    countAd(value) {
+      var componentAd = value;
+      this.resultCountAd = componentAd;
+      console.log("count"+this.resultCountAd);
     }
   }
 };

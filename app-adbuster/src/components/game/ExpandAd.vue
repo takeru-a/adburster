@@ -3,11 +3,11 @@
     <router-link to="/">home</router-link>
     <br />
     <div>
-      <span id="area1" class="main1">
+      <span id="area1" class="main1 countAd">
         <img src="../../assets/imgs/Ad01.png" alt="ad-1" id="pc1" class="ad" @click="touchAd()" />
         <button id="b1" class="close" v-on:click="adclose('area1')">×</button>
       </span>
-      <span id="area2" class="main2">
+      <span id="area2" class="main2 countAd">
         <img src="../../assets/imgs/Ad01.png" alt="ad-2" id="pc2" class="ad" @click="touchAd()" />
         <button
           id="b2"
@@ -16,7 +16,7 @@
           v-on:mouseover="expand('b2','pc2')"
         >×</button>
       </span>
-      <span id="area3" class="main3">
+      <span id="area3" class="main3 countAd">
         <img src="../../assets/imgs/Ad01.png" alt="ad-3" id="pc3" class="ad" @click="touchAd()" />
         <button id="b3" class="close" v-on:click="adclose('area3')">×</button>
       </span>
@@ -37,7 +37,8 @@ export default {
       timer: null,
       facer: null,
       adcnt: 0,
-      facecnt: 0
+      facecnt: 0,
+      countAdv: 0
     };
   },
   computed: {
@@ -93,7 +94,15 @@ export default {
         button.style.transform = "translate(0px,0px)";
         pc.style.transform = "scale(1,1)";
       }, 500);
+    },
+    countAd() {
+      var count = document.getElementsByClassName("countAd");
+      this.countAdv = count.length;
+      this.$emit("countAd", this.countAdv);
     }
+  },
+  mounted() {
+    this.countAd();
   }
 };
 </script>
