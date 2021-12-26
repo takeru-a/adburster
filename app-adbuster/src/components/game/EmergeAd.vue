@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="em">
         <div class="ad" id="ad">
         <img class="ad-img" @click="adtouch()" src="../../assets/imgs/ad-example.gif">
         <button class="close-btn" id="close-btn" type="button" @click="adclose('ad')"></button>
@@ -29,12 +29,19 @@ export default {
         adtouch(){ 
             this.$emit('touch');
         },
+        emerge() {
+            console.log("emerge");
+            var em = document.getElementById("em");
+            em.style.display = "block";
+        }
     }
 }
 </script>
 
 <style scoped> 
-
+    #em {
+        display: none;
+    }
     .ad{
         position: relative;
         width: 70%;
