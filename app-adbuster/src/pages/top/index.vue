@@ -1,6 +1,6 @@
 <template>
   <div class="HomeWrapper">
-    
+    <!--
     <router-link to="/game/slide">ゲーム1(少し動く)</router-link>
     <br>
     <router-link to="/game/emerge">ゲーム2(浮かび上がる)</router-link>
@@ -13,7 +13,7 @@
     <br>
     <router-link to="/spring">ゲーム4(横から飛び出す)</router-link>
     <br>
-    <router-link to="/game/move">動く</router-link>
+    <router-link to="/game/move">動く</router-link> -->
     
      <TopTitle></TopTitle>
      <TopButton class="button" v-on:btn-click="showUsage()"></TopButton>

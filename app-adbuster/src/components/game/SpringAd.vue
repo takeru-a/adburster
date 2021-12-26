@@ -1,6 +1,6 @@
 <template>
   <div class="springArea" id='sp'>
-    <span id="area-11" class="ad-11">
+    <span id="area-11" class="ad-11 countAd">
       <img class="mansion" src="../../assets/imgs/chirashi_mansion.png" alt="p" @click="adtouch()">
       <button v-on:click="adclose('area-11')" id="b121" class="closeButton">
         <span>×</span>
@@ -15,6 +15,7 @@ export default {
   data() {
     return {
       area: null,
+      countAdv: 0,
     };
   },
   computed: {
@@ -49,7 +50,16 @@ export default {
     stop(){
       clearInterval(this.area)
     },
+       countAd() {
+      var count = document.getElementsByClassName("countAd");
+      this.countAdv = count.length;
+      this.$emit("countAd", this.countAdv);
+    },
+  },
+  mounted() {
+    this.countAd();
   }
+
 }
 </script>
 <style scoped>
