@@ -14,6 +14,7 @@ import Story6 from '../pages/story/Story6.vue'
 import Story7 from '../pages/story/Story7.vue'
 import PlayScreen from '../components/Play/PlayScreen.vue'
 import Dummy from '../components/ads/Dummy.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -98,6 +99,7 @@ export default new Router({
       name: 'story7',
       component: Story7
     },
+
     {
       path: '/play/playscreen',
       name: 'playscreen',
@@ -108,5 +110,6 @@ export default new Router({
       name: 'dummy',
       component: Dummy
     },
+
   ]
 })

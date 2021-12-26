@@ -1,9 +1,14 @@
 <template>
   <div class="game">
-    <EmergeAd></EmergeAd>
+    <div class="bg-image">
+      <img src="../../../assets/imgs/cat.jpg" alt="">
+    </div>
+    <div>
+       <EmergeAd></EmergeAd>
     <ExpandAd></ExpandAd>
     <SlideAd></SlideAd>
     <MovieAd></MovieAd>
+    </div>
   </div>
 </template>
 <script>
@@ -27,10 +32,20 @@ export default {
 </script>
 <style>
 .game {
-  background-image: url("../../../assets/imgs/cat.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  position: relative;
   height: 100%;
+  overflow-x: hidden;
 }
+.bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: -10;
+}
+/* .bg-image img {
+  height: 100%;
+  width: 100%;
+} */
 </style>
