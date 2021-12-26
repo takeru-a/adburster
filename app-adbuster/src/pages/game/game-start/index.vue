@@ -15,10 +15,10 @@
           <img src="../../../assets/imgs/10s.png" alt="1s" />
         </span>
       </div>
-      <EmergeAd></EmergeAd>
-      <ExpandAd ref="face" @touchFace="touchFace()" @touchAd="touchAd()" @countAd="countAd()" @countFace="countFace()"></ExpandAd>
-      <SlideAd></SlideAd>
-      <MovieAd></MovieAd>
+      <EmergeAd ref="face" @touchFace="touchFace()" @touch="touch()" @close="close()" @countFace="countFace()"></EmergeAd>
+      <ExpandAd ref="face" @touchFace="touchFace()" @touch="touch()" @close="close()" @countFace="countFace()"></ExpandAd>
+      <SlideAd ref="face" @touchFace="touchFace()" @touch="touch()" @close="close()" @countFace="countFace()"></SlideAd>
+      <MovieAd ref="face" @touchFace="touchFace()" @touch="touch()" @close="close()" @countFace="countFace()"></MovieAd>
       <Result
         class="result"
         id="result1"
@@ -62,7 +62,7 @@ export default {
   },
   methods: {
     //消した広告の数をカウント
-    countAd() {
+    close() {
       this.adSum++;
       console.log(this.adSum);
       this.check();
@@ -74,7 +74,7 @@ export default {
       console.log(this.time);
     },
     //広告自体を触った時のカウント
-    countAdon() {
+    touch() {
       this.adSum++;
       console.log(this.adSum);
     },

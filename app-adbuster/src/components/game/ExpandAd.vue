@@ -58,8 +58,8 @@ export default {
     touchFace() {
       this.$emit("touchFace");
     },
-    touchAd() {
-      this.$emit("touchAd");
+    touch() {
+      this.$emit("touch");
     },
     showFace() {
       this.facer = setInterval(() => {
@@ -83,7 +83,7 @@ export default {
       tag.style.display = "none";
       this.cnt++;
       console.log(this.cnt);
-      this.$emit("countAd");
+      this.$emit("close");
     },
     expand(btn, picture) {
       let button = document.getElementById(btn);
