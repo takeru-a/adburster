@@ -14,6 +14,7 @@
     <router-link to="/spring">ゲーム4(横から飛び出す)</router-link>
     <br>
     <router-link to="/game/move">動く</router-link>
+    
      <TopTitle></TopTitle>
      <TopButton class="button" v-on:btn-click="showUsage()"></TopButton>
      <Toplay class="toplay" id="toplay" v-on:close="close()"></Toplay>

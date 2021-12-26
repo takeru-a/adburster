@@ -113,7 +113,7 @@ export default {
       this.timer = setInterval(this.countTime, 10);
       this.$refs.face.showFace();
       this.$refs.face.start();
-      this.$refs.spring.randomSlideLeft();
+      this.$refs.spring.emerge();
       this.$refs.em.emerge();
       this.$refs.sl.emerge();
       this.$refs.mo.emerge();
@@ -146,6 +146,7 @@ export default {
     back(){
       this.$refs.face.faceStop();
       this.$refs.mo.stop();
+      this.$refs.spring.stop();
     },
     //広告を全部消した時の処理
     check() {
