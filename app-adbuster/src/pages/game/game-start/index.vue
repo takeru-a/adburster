@@ -15,10 +15,16 @@
           <img src="../../../assets/imgs/10s.png" alt="1s" />
         </span>
       </div>
-      <EmergeAd @touch="touch()" @close="close()"></EmergeAd>
-      <ExpandAd ref="face" @touchFace="touchFace()" @touch="touch()" @close="close()" @countFace="countFace()"></ExpandAd>
-      <SlideAd @touch="touch()" @close="close()"></SlideAd>
-      <MovieAd @touch="touch()" @close="close()"></MovieAd>
+      <EmergeAd ref="em" @touch="touch()" @close="close()"></EmergeAd>
+      <ExpandAd
+        ref="face"
+        @touchFace="touchFace()"
+        @touch="touch()"
+        @close="close()"
+        @countFace="countFace()"
+      ></ExpandAd>
+      <SlideAd ref="sl" @touch="touch()" @close="close()"></SlideAd>
+      <MovieAd ref="mo" @touch="touch()" @close="close()"></MovieAd>
       <Result
         class="result"
         id="result1"
@@ -75,8 +81,8 @@ export default {
     },
     //広告自体を触った時のカウント
     touch() {
-      this.adSum++;
-      console.log(this.adSum);
+      this.adonSum++;
+      this.touchAd();
     },
     // reset() {
     //   this.time = 0;
@@ -94,6 +100,9 @@ export default {
       this.timer = setInterval(this.countTime, 10);
       this.$refs.face.showFace();
       this.$refs.face.start();
+      this.$refs.em.emerge();
+      this.$refs.sl.emerge();
+      this.$refs.mo.emerge();
     },
     //顔を押した時のポップアップ
     touchFace() {
@@ -106,7 +115,7 @@ export default {
       this.time += 10;
       this.$emit("countAd");
     },
-     //広告自体を押した時のポップアップ
+    //広告自体を押した時のポップアップ
     touchAd() {
       this.adonSum++;
       this.time++;
