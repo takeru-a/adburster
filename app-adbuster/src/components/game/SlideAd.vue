@@ -24,7 +24,9 @@ export default {
         "pop_honjitsuno_koukoku.png",
         "ayashii_koukoku_fukugyou.png",
         "ad-example.gif",
-        "chirashi_mansion.png"
+        "chirashi_mansion.png",
+        "ad-university.png",
+        "ad-make.png"
       ]
     };
   },

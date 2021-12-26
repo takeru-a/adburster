@@ -24,7 +24,9 @@ export default {
         "pop_honjitsuno_koukoku.png",
         "ayashii_koukoku_fukugyou.png",
         "ad-example.gif",
-        "chirashi_mansion.png"
+        "chirashi_mansion.png",
+        "ad-university.png",
+        "ad-make.png"
       ],
       delay: 1200
     };
@@ -72,7 +74,6 @@ export default {
   padding: 0;
 }
 .box {
-  border: 1px solid #000;
   width: 300px;
   height: 100px;
   position: absolute;
