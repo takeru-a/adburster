@@ -10,6 +10,8 @@
     <router-link to="/game/movie">動画広告</router-link>
     <br>
     <router-link to="/dummy">ダミー</router-link>
+    <br>
+    <router-link to="/game/move">動く</router-link>
      <TopTitle></TopTitle>
 
     
