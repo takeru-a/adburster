@@ -3,7 +3,7 @@
     <div id="moviead">
       <img src="../../assets/imgs/Ad02.png" alt="ad" @click="adtouch()" />
       <button class="close-btn" id="c-btn" @click="adclose('moviead')"></button>
-      <p id="PassageArea" class="cnt">{{ timerCount }}秒後skip</p>
+      <span  id="PassageArea"><p class="cnt">{{ timerCount }}秒後skip</p></span>
     </div>
   </div>
 </template>
@@ -12,7 +12,8 @@ export default {
   data() {
     return {
       timerCount: 15,
-      result: String
+      result: String,
+      setter:null
     };
   },
   methods: {
@@ -32,12 +33,16 @@ export default {
       } else {
         document.getElementById("PassageArea").innerHTML = "";
         document.getElementById("c-btn").innerHTML = "閉じる";
+        clearInterval(this.setter)
       }
+    },
+    stop(){
+      clearInterval(this.setter)
     },
     emerge() {
       var em = document.getElementById("mo");
       em.style.display = "block";
-      setInterval(this.count, 1000);
+      this.setter = setInterval(this.count, 1000);
     },
   }
 };
