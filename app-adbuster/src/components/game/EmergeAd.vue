@@ -4,13 +4,13 @@
         <img class="ad-img" @click="adtouch()" src="../../assets/imgs/ad-example.gif">
         <button class="close-btn" id="close-btn" type="button" @click="adclose('ad')"></button>
         </div>
-         <div class="ad2" id="ad2">
+         <div class="ad2" id="ad22">
         <img class="ad-img" @click="adtouch()" src="../../assets/imgs/ad-example.gif">
-        <button class="close-btn" id="close-btn" type="button" @click="adclose('ad2')"></button>
+        <button class="close-btn" id="close-btn" type="button" @click="adclose('ad22')"></button>
         </div>
-        <div class="ad3" id="ad3">
+        <div class="ad3" id="ad33">
         <img class="ad-img" @click="adtouch()" src="../../assets/imgs/ad-example.gif">
-        <button class="close-btn" id="close-btn" type="button" @click="adclose('ad3')"></button>
+        <button class="close-btn" id="close-btn" type="button" @click="adclose('ad33')"></button>
         </div>
     </div>
     

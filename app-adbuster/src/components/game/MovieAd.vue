@@ -20,6 +20,7 @@ export default {
       var ad = document.getElementById(id);
       console.log("click");
       ad.remove();
+      this.$emit('close')
     },
     adtouch() {
       this.$emit("touch");
