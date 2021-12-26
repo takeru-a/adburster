@@ -5,7 +5,7 @@
       <button @click="page" class="Bigbutton">{{story}}</button>
     </router-link>
     <br>
-    <button @click="page" class="Bigbutton">{{way}}</button>
+    <button @click="showtoplay()" class="Bigbutton">{{way}}</button>
     <br>
     <router-link class="router-link" to="/game/emerge">
           <button @click="page" class="Bigbutton">{{play}}</button>
@@ -26,6 +26,10 @@ export default {
     };
   },
   methods: {
+    showtoplay(){
+      
+      this.$emit('btn-click');
+    },
     page() {
       
     },
