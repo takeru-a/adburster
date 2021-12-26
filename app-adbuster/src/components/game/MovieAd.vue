@@ -1,8 +1,9 @@
 <template>
   <div>
-    <div id="ad">
-      <div id="PassageArea">{{ timerCount }}</div>
-      <div @click="btnClick" id="rs"></div>
+    <div id="moviead">
+      <img src="../../assets/imgs/Ad02.png" alt="ad" @click="adtouch()">
+      <button class="close-btn" id="c-btn"  @click="adclose('moviead')"></button>
+      <p id="PassageArea" class="cnt">{{ timerCount }}秒後skip</p>
     </div>
   </div>
 </template>
@@ -10,14 +11,19 @@
 export default {
   data() {
     return {
-      timerCount: 5,
+      timerCount: 15,
       result: String
     };
   },
   methods: {
-    btnClick() {
-      var ad = document.getElementById("ad");
+    adclose(id) {
+      var ad = document.getElementById(id);
+      console.log("click")
       ad.remove();
+    },
+    adtouch(){
+      this.$emit('touch')
+      console.log('t')
     }
   },
   watch: {
@@ -29,7 +35,7 @@ export default {
           }, 1000);
         } else {
           document.getElementById("PassageArea").innerHTML = "";
-          document.getElementById("rs").innerHTML = "閉じる";
+          document.getElementById("c-btn").innerHTML = "閉じる";
         }
       },
       immediate: true
@@ -38,12 +44,27 @@ export default {
 };
 </script>
 <style scoped>
-#ad {
+#moviead {
   width: 300px;
   height: 50px;
   border: 1px solid #000;
+  position: relative;
+  
+}
+.cnt{
+  background-color: aquamarine;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.close-btn{
+   background-color: aquamarine;
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }
 #rs {
   cursor: pointer;
 }
+
 </style>

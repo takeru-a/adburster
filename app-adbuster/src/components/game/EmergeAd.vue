@@ -19,26 +19,15 @@
 <script>
 export default {
     name: 'emergead',
-    data(){
-        return{
-            data :0,
-            cnt :0,
-        }
-    },
+    
     methods: {
         adclose(id){
             this.$emit('close');
             var ad = document.getElementById(id);
-            this.cnt++;
-            console.log('cnt')
-            console.log(this.cnt)
             ad.remove();
         },
-        adtouch(){
-            console.log('touch')
+        adtouch(){ 
             this.$emit('touch');
-            this.data++;
-            console.log(this.data)
         },
     }
 }
