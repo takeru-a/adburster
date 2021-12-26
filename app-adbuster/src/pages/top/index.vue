@@ -11,6 +11,8 @@
     <br>
     <router-link to="/dummy">ダミー</router-link>
     <br>
+    <router-link to="/spring">ゲーム4(横から飛び出す)</router-link>
+    <br>
     <router-link to="/game/move">動く</router-link>
      <TopTitle></TopTitle>
 

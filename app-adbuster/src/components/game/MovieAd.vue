@@ -20,27 +20,25 @@ export default {
       var ad = document.getElementById(id);
       console.log("click");
       ad.remove();
-      this.$emit('close')
+      this.$emit("close");
     },
     adtouch() {
       this.$emit("touch");
       console.log("t");
     },
+    count() {
+      if (this.timerCount > 0) {
+        this.timerCount--;
+      } else {
+        document.getElementById("PassageArea").innerHTML = "";
+        document.getElementById("c-btn").innerHTML = "閉じる";
+      }
+    },
     emerge() {
       var em = document.getElementById("mo");
       em.style.display = "block";
-      this.count();
+      setInterval(this.count, 1000);
     },
-    count() {
-      if (this.timerCount > 0) {
-          setTimeout(() => {
-            this.timerCount--;
-          }, 1000);
-        } else {
-          document.getElementById("PassageArea").innerHTML = "";
-          document.getElementById("c-btn").innerHTML = "閉じる";
-        }
-    }
   }
 };
 </script>

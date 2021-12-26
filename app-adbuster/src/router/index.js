@@ -14,6 +14,7 @@ import Story5 from '../pages/story/Story5.vue'
 import Story6 from '../pages/story/Story6.vue'
 import Story7 from '../pages/story/Story7.vue'
 import Dummy from '../components/ads/Dummy.vue'
+import Spring from '../components/game/SpringAd.vue'
 
 Vue.use(Router)
 
@@ -109,6 +110,10 @@ export default new Router({
       name: 'dummy',
       component: Dummy
     },
-
+    {
+      path: '/spring',
+      name: 'spring',
+      component: Spring
+    },
   ]
 })
