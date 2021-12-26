@@ -5,6 +5,8 @@
     </div>
     <div>
       <div>
+        <Sound ref="sound"></Sound>
+        <router-link class="router-link" to="/game/select"><button @click="back()">Back</button></router-link>
         <button @click="start()" v-bind:disabled="isPlaying">start</button>
         <!-- <button @click="reset()" v-bind:disabled="!isPlaying">reset</button> -->
         <h1>{{ showtimer }} 秒経過</h1>
@@ -36,6 +38,7 @@
   </div>
 </template>
 <script>
+import Sound from "../../../components/Sound";
 import EmergeAd from "../../../components/game/EmergeAd";
 import ExpandAd from "../../../components/game/ExpandAd";
 import MovieAd from "../../../components/game/MovieAd";
@@ -45,6 +48,7 @@ import Result from "../../../components/Result";
 export default {
   name: "gameplay",
   components: {
+    Sound,
     EmergeAd,
     ExpandAd,
     MovieAd,
@@ -67,11 +71,15 @@ export default {
     }
   },
   methods: {
+    onSound(num){
+      this.$refs.sound.sound_on(num);
+    },
     //消した広告の数をカウント
     close() {
       this.adSum++;
       console.log(this.adSum);
       this.check();
+      this.onSound(1);
     },
     //顔のダミーのカウント
     countFace() {
@@ -83,6 +91,8 @@ export default {
     touch() {
       this.adonSum++;
       this.touchAd();
+      this.onSound(0);
+
     },
     // reset() {
     //   this.time = 0;
@@ -113,6 +123,7 @@ export default {
       }, 500);
       this.faceSum++;
       this.time += 10;
+      this.onSound(0);
       this.$emit("countAd");
     },
     //広告自体を押した時のポップアップ
@@ -127,6 +138,10 @@ export default {
     },
     countTime() {
       this.time += 0.01;
+    },
+    back(){
+      this.$refs.face.faceStop();
+      this.$refs.mo.stop();
     },
     //広告を全部消した時の処理
     check() {

@@ -1,6 +1,6 @@
 <template>
   <span>
-    <button @click="muted()">ミュート</button>
+    <button @click="muted()">ON/OFF</button>
   </span>
 </template>
 <script>
@@ -17,10 +17,11 @@ export default {
       on: true,
       }
   },
-  methods: {
+  methods:{
     sound_on(num) {
        this.num = num
        if(this.audio.length>this.num){
+        this.audio[this.num].volume = 0.1
         this.audio[this.num].play();
        }else{
            this.num = 0
@@ -30,7 +31,8 @@ export default {
             this.audio[this.num].muted = this.on;
             this.on = !this.on
     },
-  },
+  }
+ 
 };
 </script>
 <style scoped>
