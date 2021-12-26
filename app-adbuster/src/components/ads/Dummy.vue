@@ -1,28 +1,18 @@
 <template>
   <div>
     <div class="ads" id="ad1">
-      <img class="ad-img" @click="touch()" src="../../assets/imgs/ad-example.gif">
+      <img class="ad-img" @click="touch()" :src="require(`@/assets/imgs/${random_select()}`)" />
       <button class="close-btn" id="close-btn" type="button" @click="btnClick('ad1')"></button>
       <div class="batsu">×</div>
     </div>
     <div class="ads" id="ad2">
-      <img class="ad-img" @click="touch()" src="../../assets/imgs/ayashii_koukoku_fukugyou.png" />
+      <img class="ad-img" @click="touch()" :src="require(`@/assets/imgs/${random_select()}`)" />
       <button class="close-btn" id="close-btn" type="button" @click="btnClick('ad2')"></button>
       <div class="batsu">×</div>
     </div>
     <div class="ads" id="ad3">
-      <img class="ad-img" @click="touch()" src="../../assets/imgs/pop_honjitsuno_koukoku.png" />
+      <img class="ad-img" @click="touch()" :src="require(`@/assets/imgs/${random_select()}`)" />
       <button class="close-btn" id="close-btn" type="button" @click="btnClick('ad3')"></button>
-      <div class="batsu">×</div>
-    </div>
-    <div class="ads" id="ad4">
-      <img class="ad-img" @click="touch()" :src="require(`@/assets/imgs/${random_select()}`)" />
-      <button class="close-btn" id="close-btn" type="button" @click="btnClick('ad4')"></button>
-      <div class="batsu">×</div>
-    </div>
-    <div class="ads" id="ad5">
-      <img class="ad-img" @click="touch()" :src="require(`@/assets/imgs/${random_select()}`)" />
-      <button class="close-btn" id="close-btn" type="button" @click="btnClick('ad5')"></button>
       <div class="batsu">×</div>
     </div>
   </div>
@@ -70,22 +60,12 @@ export default {
     #ad2{
         position: absolute;
         top: 40%;
-        left: 30%;
+        right: 30%;
     }
     #ad3{
         position: absolute;
         top: 70%;
-        left: 60%;
-    }
-    #ad4{
-        position: absolute;
-        top: 30%;
-        left: -10%;
-    }
-    #ad5{
-        position: absolute;
-        top: 20%;
-        left: 5%;
+        left: 10%;
     }
 
     .batsu{

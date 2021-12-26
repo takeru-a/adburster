@@ -34,6 +34,7 @@ p{
   position: fixed;
   right: 0;
   bottom: 0;
+  font-size: 30px;
 }
 
 .frame{
