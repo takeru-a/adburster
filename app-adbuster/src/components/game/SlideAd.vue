@@ -90,8 +90,9 @@ export default {
 }
 .close-btn {
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 10px;
+  right: 10px;
+  font-size: 200%;
   background-color: transparent;
   border: none;
 }
