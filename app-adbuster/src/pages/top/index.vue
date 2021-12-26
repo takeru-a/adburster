@@ -1,9 +1,6 @@
 <template>
   <div class="HomeWrapper">
-    <Header></Header>
-    <h1>テスト</h1>
-    <router-link to="/usage">使い方</router-link>
-    <br>
+    
     <router-link to="/game/slide">ゲーム1(少し動く)</router-link>
     <br>
     <router-link to="/game/emerge">ゲーム2(浮かび上がる)</router-link>
@@ -11,23 +8,41 @@
     <router-link to="/game/expand">ゲーム3(広がる)</router-link>
     <br>
     <router-link to="/game/movie">動画広告</router-link>
-    <TopTitle></TopTitle>
-    <TopButton></TopButton>
+     <TopTitle></TopTitle>
+    
+     <TopButton class="button" v-on:btn-click="showUsage()"></TopButton>
+     <Toplay class="toplay" id="toplay" v-on:close="close()"></Toplay>
+   
+    
   </div>
 </template>
 <script>
-import Header from "../../components/Header"
+//import Header from "../../components/Header"
 import TopButton from "../../components/Top/TopButton";
 import TopTitle from "../../components/Top/TopTitle"
+import Toplay from "../usage/Toplay"
+
 export default {
   name: 'top',
   components: {
-    Header,
+    //Header,
     TopButton,
     TopTitle,
-  }
+    Toplay,
+  },
+  methods:{
+    showUsage(){
+      var tag = document.getElementById("toplay");
+      tag.style.visibility = "visible";
+    },
+    close(){
+      var tag = document.getElementById("toplay");
+      tag.style.visibility = "hidden";
+    },
+  },
 }
-</script>
+
+    </script>
 <style scoped>
   .HomeWrapper {
     background-image: url("../../assets/imgs/topBackgroundImage.svg");
@@ -35,4 +50,13 @@ export default {
     min-height: 100vh;
     z-index: -1;
   }
+  .button{
+    transform: translate(0,250px);
+  }
+  .toplay{
+  visibility: hidden;
+  transform: translate(0,-350px);
+   
+  }
+  
 </style>
