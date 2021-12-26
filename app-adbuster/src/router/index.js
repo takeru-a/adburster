@@ -5,7 +5,6 @@ import EmergeAd from "../components/game/EmergeAd.vue"
 import ExpandAd from '../components/game/ExpandAd.vue'
 import MovieAd from '../components/game/MovieAd.vue'
 import TopButton from '../components/Top/TopButton.vue'
-import PlayScreen from '../components/Play/PlayScreen.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -59,11 +58,6 @@ export default new Router({
       path: '/game/emerge',
       name: 'topbutton',
       component: TopButton
-    },
-    {
-      path: '/play/playscreen',
-      name: 'playscreen',
-      component: PlayScreen
     },
   ]
 })
