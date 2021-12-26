@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="body">
     <img class="storyBackImg" src="../../assets/imgs/bgStory.png" alt="">
     <!-- クリック  @click="関数名"-->
     <div class="strings">
@@ -85,6 +85,7 @@ export default {
   position: fixed;
   right: 0;
   bottom: 0;
+  font-size: 30px;
 }
 .router-link{
   color: white;

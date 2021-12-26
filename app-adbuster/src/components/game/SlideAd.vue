@@ -1,35 +1,89 @@
 <template>
-  <div class="ads" id="ad">
-    <img class="ad-img" src="../../assets/imgs/ad-example.gif" />
-    <button class="close-btn" id="close-btn" type="button" @click="btnClick()"></button>
+  <div>
+    <div class="ads" id="ad1">
+      <img class="ad-img" @click="touch()" :src="require(`@/assets/imgs/${random_select()}`)" />
+      <button class="close-btn" id="close-btn" type="button" @click="btnClick('ad1')"></button>
+    </div>
+    <div class="ads" id="ad2">
+      <img class="ad-img" @click="touch()" :src="require(`@/assets/imgs/${random_select()}`)" />
+      <button class="close-btn" id="close-btn" type="button" @click="btnClick('ad2')"></button>
+    </div>
+    <div class="ads" id="ad3">
+      <img class="ad-img" @click="touch()" :src="require(`@/assets/imgs/${random_select()}`)" />
+      <button class="close-btn" id="close-btn" type="button" @click="btnClick('ad3')"></button>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "slidead",
+  data() {
+    return {
+      urls: [
+        "pop_honjitsuno_koukoku.png",
+        "ayashii_koukoku_fukugyou.png",
+        "ad-example.gif",
+        "chirashi_mansion.png"
+      ]
+    };
+  },
   methods: {
-    btnClick() {
-      var ad = document.getElementById("ad");
+    btnClick(area) {
+      var ad = document.getElementById(area);
+      this.$emit('close');
       ad.remove();
+      console.log("closed");
+    },
+    touch() {
+      this.$emit('touch');
+    },
+    random_select() {
+      const len_url = this.urls.length;
+      const idx = Math.floor(Math.random() * len_url);
+      console.log(idx);
+      return this.urls[idx];
     }
   }
 };
 </script>
 <style scoped>
-.ads {
+#ad1 {
   position: absolute;
-  top: 0;
+  top: 70%;
+  left: 20%;
   width: 70%;
   height: 200px;
-  /* margin-left: auto;
-  margin-right: auto; */
-  transform: translate(0px, 100px);
+  transform: translate(0%, 100%);
   transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.6s;
 }
-.ads:hover {
+#ad1:hover {
   transform: translate(0, 0);
 }
+
+#ad2 {
+  position: absolute;
+  top: 0%;
+  left: 30%;
+  width: 30%;
+  transform: translate(0%, 30%);
+  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.6s;
+}
+#ad2:hover {
+  transform: translate(50%, 50%);
+}
+
+#ad3 {
+  position: absolute;
+  top: 0%;
+  width: 70%;
+  transform: translate(20px, 300px);
+  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.6s;
+}
+#ad3:hover {
+  transform: translate(-10%, 30%);
+}
+
 .ad-img {
   height: 100%;
   width: 100%;

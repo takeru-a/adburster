@@ -1,29 +1,71 @@
 <template>
-    <div class="ad" id="ad">
-        <img class="ad-img" src="../../assets/imgs/ad-example.gif">
-        <button class="close-btn" id="close-btn" type="button" @click="btnClick()"></button>
-        <div class="batsu">×</div>
+  <div>
+    <div class="ads" id="ad1">
+      <img class="ad-img" @click="touch()" :src="require(`@/assets/imgs/${random_select()}`)" />
+      <button class="close-btn" id="close-btn" type="button" @click="btnClick('ad1')"></button>
+      <div class="batsu">×</div>
     </div>
+    <div class="ads" id="ad2">
+      <img class="ad-img" @click="touch()" :src="require(`@/assets/imgs/${random_select()}`)" />
+      <button class="close-btn" id="close-btn" type="button" @click="btnClick('ad2')"></button>
+      <div class="batsu">×</div>
+    </div>
+    <div class="ads" id="ad3">
+      <img class="ad-img" @click="touch()" :src="require(`@/assets/imgs/${random_select()}`)" />
+      <button class="close-btn" id="close-btn" type="button" @click="btnClick('ad3')"></button>
+      <div class="batsu">×</div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
     name: 'slidead',
-    methods: {
-        btnClick(){
-            var ad = document.getElementById("ad");
-            ad.remove();
-        }
+    data() {
+    return {
+      urls: [
+        "pop_honjitsuno_koukoku.png",
+        "ayashii_koukoku_fukugyou.png",
+        "ad-example.gif",
+        "chirashi_mansion.png"
+      ]
+    };
+  },
+  methods: {
+    btnClick(area){
+      var ad = document.getElementById(area);
+      ad.remove();
+      this.$emit('close');
+    },
+    touch() {
+      this.$emit('touch');
+    },
+    random_select() {
+      const len_url = this.urls.length;
+      const idx = Math.floor(Math.random() * len_url);
+      console.log(idx);
+      return this.urls[idx];
     }
+  }
 }
 </script>
 
 <style scoped> 
-    .ad{
-        position: relative;
-        /* width: 70%;
-        margin-left: auto;
-        margin-right: auto; */
+    #ad1{
+        position: absolute;
+        top: 0;
+        left: 10%;
+        height: 30%;
+    }
+    #ad2{
+        position: absolute;
+        top: 40%;
+        right: 30%;
+    }
+    #ad3{
+        position: absolute;
+        top: 70%;
+        left: 10%;
     }
 
     .batsu{
@@ -37,7 +79,6 @@ export default {
         border-radius: 100%;
         width: 1.3em;
         line-height: 1.3em;
-        cursor: pointer;
         transition: .2s;
         position: absolute;
         top: 0;
@@ -45,9 +86,7 @@ export default {
     }  
     
     .ad-img{
-        position: absolute;
-        /* width: 100%;
-        height: 200px; */
+        position: relative;
     }
     
     .close-btn{
@@ -57,7 +96,6 @@ export default {
         background-color: transparent;
         border: none;
     }
-
 
     .close-btn:hover{
         color: red;
