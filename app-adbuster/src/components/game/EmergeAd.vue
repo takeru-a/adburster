@@ -1,18 +1,45 @@
 <template>
-    <div class="ad" id="ad">
-        <img class="ad-img" src="../../assets/imgs/ad-example.gif">
-        <button class="close-btn" id="close-btn" type="button" @click="btnClick()"></button>
+    <div>
+        <div class="ad" id="ad">
+        <img class="ad-img" @click="adtouch()" src="../../assets/imgs/ad-example.gif">
+        <button class="close-btn" id="close-btn" type="button" @click="adclose('ad')"></button>
+        </div>
+         <div class="ad2" id="ad2">
+        <img class="ad-img" @click="adtouch()" src="../../assets/imgs/ad-example.gif">
+        <button class="close-btn" id="close-btn" type="button" @click="adclose('ad2')"></button>
+        </div>
+        <div class="ad3" id="ad3">
+        <img class="ad-img" @click="adtouch()" src="../../assets/imgs/ad-example.gif">
+        <button class="close-btn" id="close-btn" type="button" @click="adclose('ad3')"></button>
+        </div>
     </div>
+    
 </template>
 
 <script>
 export default {
-    name: 'slidead',
-    methods: {
-        btnClick(){
-            var ad = document.getElementById("ad");
-            ad.remove();
+    name: 'emergead',
+    data(){
+        return{
+            data :0,
+            cnt :0,
         }
+    },
+    methods: {
+        adclose(id){
+            this.$emit('close');
+            var ad = document.getElementById(id);
+            this.cnt++;
+            console.log('cnt')
+            console.log(this.cnt)
+            ad.remove();
+        },
+        adtouch(){
+            console.log('touch')
+            this.$emit('touch');
+            this.data++;
+            console.log(this.data)
+        },
     }
 }
 </script>
@@ -31,6 +58,36 @@ export default {
 
     .ad:hover{
         transform: translate(0, 0);
+        transition: all cubic-bezier(0.215, 0.61, 0.355, 1) 3s;
+        opacity: 1;
+    }
+
+    .ad2{
+        position: relative;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0;
+        transform: translate(200px, 300px);
+        transition: all cubic-bezier(0.215, 0.61, 0.355, 1) 3s;
+    }
+    .ad2:hover{
+        transform: translate(200px, 100px);
+        transition: all cubic-bezier(0.215, 0.61, 0.355, 1) 3s;
+        opacity: 1;
+    }
+
+    .ad3{
+        position: relative;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0;
+        transform: translate(-200px, 500px);
+        transition: all cubic-bezier(0.215, 0.61, 0.355, 1) 3s;
+    }
+    .ad3:hover{
+        transform: translate(-200px, 300px);
         transition: all cubic-bezier(0.215, 0.61, 0.355, 1) 3s;
         opacity: 1;
     }
