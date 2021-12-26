@@ -12,7 +12,7 @@ import Story4 from '../pages/story/Story4.vue'
 import Story5 from '../pages/story/Story5.vue'
 import Story6 from '../pages/story/Story6.vue'
 import Story7 from '../pages/story/Story7.vue'
-import PlayScreen from '../components/Play/PlayScreen.vue'
+import PlayScreen from '../components/Play/PlaySelect.vue'
 import Dummy from '../components/ads/Dummy.vue'
 
 Vue.use(Router)

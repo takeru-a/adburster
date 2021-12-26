@@ -1,6 +1,6 @@
 <template>
   <div class="ads" id="ad">
-    <img class="ad-img" src="../../assets/imgs/ad-example.gif" />
+    <img class="ad-img" @click="touch()" src="../../assets/imgs/ad-example.gif" />
     <button class="close-btn" id="close-btn" type="button" @click="btnClick()"></button>
   </div>
 </template>
@@ -11,8 +11,13 @@ export default {
   methods: {
     btnClick() {
       var ad = document.getElementById("ad");
+      this.$emit('close');
       ad.remove();
-    }
+      console.log("closed");
+    },
+    touch() {
+      this.$emit('touch');
+    },
   }
 };
 </script>
