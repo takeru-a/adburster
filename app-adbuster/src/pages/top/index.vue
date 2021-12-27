@@ -15,10 +15,10 @@
     <br>
     <router-link to="/game/move">動く</router-link> -->
     
-     <TopTitle></TopTitle>
-     <TopButton class="button" v-on:btn-click="showUsage()"></TopButton>
-     <Toplay class="toplay" id="toplay" v-on:close="close()"></Toplay>
-   
+    <TopTitle></TopTitle>
+    <TopButton class="button" v-on:click="isActive01=!isActive01" v-bind:class="{ active: isActive }" v-on:btn-click="showUsage()"></TopButton>
+    <Toplay class="toplay" id="toplay" v-bind:class="{ active: isActive }" v-on:close="close()"></Toplay>
+
     
   </div>
 </template>
@@ -36,7 +36,11 @@ export default {
     TopTitle,
     Toplay,
   },
-
+  data() {
+    return {
+      isActive01 : false,
+    }
+  },
   methods:{
     showUsage(){
       var tag = document.getElementById("toplay");
@@ -48,8 +52,7 @@ export default {
     },
   },
 }
-
-    </script>
+</script>
 <style scoped>
   .HomeWrapper {
     background-image: url("../../assets/imgs/topBackgroundImage.svg");
@@ -63,7 +66,11 @@ export default {
   .toplay{
   visibility: hidden;
   transform: translate(0,-350px);
-   
   }
-  
+  .toplay-show {
+    animation: fadein 1s;
+  }
+  @keyframes fadein {
+    100% { opacity: 1; }
+  }
 </style>
