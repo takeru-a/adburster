@@ -6,8 +6,10 @@
     <div>
       <div>
         <Sound ref="sound"></Sound>
-        <router-link class="router-link" to="/game/select"><button @click="back()">Back</button></router-link>
-        <button @click="start()" v-bind:disabled="isPlaying">start</button>
+        <router-link class="router-link backBtn" to="/game/select">
+          <button @click="back()">Back</button>
+        </router-link>
+        <button class="startBtn" @click="start()" v-bind:disabled="isPlaying">start</button>
         <!-- <button @click="reset()" v-bind:disabled="!isPlaying">reset</button> -->
         <h1>{{ showtimer }} 秒経過</h1>
         <span class="point1" id="point">
@@ -45,7 +47,7 @@ import EmergeAd from "../../../components/game/EmergeAd";
 import ExpandAd from "../../../components/game/ExpandAd";
 import MovieAd from "../../../components/game/MovieAd";
 import SlideAd from "../../../components/game/SlideAd";
-import SpringAd from "../../../components/game/SpringAd"
+import SpringAd from "../../../components/game/SpringAd";
 import Result from "../../../components/Result";
 
 export default {
@@ -57,7 +59,7 @@ export default {
     MovieAd,
     SlideAd,
     Result,
-    SpringAd,
+    SpringAd
   },
   data() {
     return {
@@ -76,7 +78,7 @@ export default {
     }
   },
   methods: {
-    onSound(num){
+    onSound(num) {
       this.$refs.sound.sound_on(num);
     },
     //消した広告の数をカウント
@@ -97,7 +99,6 @@ export default {
       this.adonSum++;
       this.touchAd();
       this.onSound(0);
-
     },
     // reset() {
     //   this.time = 0;
@@ -145,14 +146,14 @@ export default {
     countTime() {
       this.time += 0.01;
     },
-    back(){
+    back() {
       this.$refs.face.faceStop();
       this.$refs.mo.stop();
       this.$refs.spring.stop();
     },
     //広告を全部消した時の処理
     check() {
-      if(this.resultCountAd=== this.adSum) {
+      if (this.resultCountAd === this.adSum) {
         this.$refs.face.faceStop();
         let msg = document.getElementById("msg");
         msg.style.visibility = "visible";
@@ -165,7 +166,7 @@ export default {
     countAd(value) {
       var componentAd = value;
       this.resultCountAd = componentAd;
-      console.log("count"+this.resultCountAd);
+      console.log("count" + this.resultCountAd);
     }
   }
 };
@@ -210,5 +211,22 @@ export default {
 }
 .result {
   visibility: hidden;
+}
+.startBtn {
+  height: 30px;
+  width: 100px;
+  font-size: 1.2rem;
+  background-color: #af0000;
+  color: #fff;
+  border: solid 1px #000;
+}
+button {
+  margin: 20px;
+  width: 100px;
+  height: 30px;
+  font-size: 1.2rem;
+}
+button.startBtn:disabled {
+  background-color: rgb(143, 143, 143);
 }
 </style>
