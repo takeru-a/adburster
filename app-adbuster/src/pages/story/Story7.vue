@@ -3,10 +3,10 @@
     <img class="storyBackImg" src="../../assets/imgs/bgStory.png" alt="">
     <!-- クリック  @click="関数名"-->
     <div class="strings">
-      <p>本来見たかった
+      <p><span class="ho">本来見たかった</span>
       <br><span class="mono">「モノ」</span>
-      <br>がこれらにより
-      <br>見えなくなっている。
+      <br><span class="ga">がこれらにより</span>
+      <br><span class="mi">見えなくなっている。</span>
       <br>
       <span class="last"><span class="yatsura">やつら</span>を消せ。</span></p>
     </div>
@@ -61,23 +61,45 @@ export default {
   -webkit-text-stroke: 1px #000;
 }
 
+.ho{
+  opacity: 0;
+  animation: fadein 2s ease 0s forwards;
+}
+
 .mono{
     font-size: 70px;
     font-weight: bold;
+    opacity: 0;
+  animation: fadein 2s ease 1s forwards;
+}
+
+.ga{
+  opacity: 0;
+  animation: fadein 2s ease 1s forwards;
+}
+
+.mi{
+  opacity: 0;
+  animation: fadein 2s ease 2s forwards;
 }
 
 .yatsura{
     color: red;
-    font-size: 60px;
+    font-size: 80px;
     width: 300px;
 }
 
 .last{
   position: fixed;
-  width: 400px;
-  left: 50%;
+  width: 100%;
+  font-size: 60px;
+  left: 0%;
   top: 95%;
-  transform: translate(-50%, 0%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transform: scale(0);
+  animation: scale 1s ease 3s forwards;
+  /* animation: fadein 2s ease 3s forwards; */
 }
 
 .next{
@@ -86,6 +108,8 @@ export default {
   right: 0;
   bottom: 0;
   font-size: 30px;
+  opacity: 0;
+  animation: fadein 2s ease 4s forwards;
 }
 .router-link{
   color: white;
@@ -94,6 +118,14 @@ export default {
   margin-right: -50%;
   transform: translate(-50%, -50%);
   bottom: 0%;
+}
+
+@keyframes fadein {
+    100% {  opacity: 1;}
+}
+@keyframes scale {
+    100% {transform: scale(1);}
+    100% {  opacity: 1;}
 }
 
   @import url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap');
@@ -117,6 +149,8 @@ export default {
     border-radius: 8px;
     transition: 0.3s;
     background-color: #AF0000;
+    opacity: 0;
+  animation: fadein 2s ease 4s forwards;
   }
   .Bigbutton:hover {
     text-decoration: none;

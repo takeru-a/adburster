@@ -22,14 +22,6 @@
   z-index: -1;
   width: 100%;
 }
-.video {
-  width: 800px;
-  height:550px;
-  position: absolute;
-  left: 53%;
-  top: 55%;
-  transform: translate(-50%, -80%);
-}
 p{
   font-family: "YuMincho", serif;
   font-size: 50px;
@@ -48,21 +40,32 @@ p{
   font-size: 30px;
 }
 
+.videoWrap{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 60%;
+  width: 41%;
+  overflow: hidden;
+}
+
+.video {
+  width: 200%;
+  height:135%;
+  position: fixed;
+  left: 32%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+}
+
 .frame{
+  width: 106%;
+  height: 105%;
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 800px;
-  top: 55%;
-}
-
-.dummy-movie{
-  position: fixed;
-  left: 24%;
-  top: 17%;
-  width: 52%;
-  height: 66%;
 }
 
 .body{

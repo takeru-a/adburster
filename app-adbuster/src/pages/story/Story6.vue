@@ -37,31 +37,33 @@ p{
   bottom: 0;
   font-size: 30px;
 }
-.video {
-  width: 800px;
-  height:550px;
+
+.videoWrap{
   position: absolute;
-  left: 53%;
-  top: 55%;
-  transform: translate(-50%, -80%);
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 60%;
+  width: 45%;
+  overflow: hidden;
 }
 
-.frame{
-  width: 60%;
+.video {
+  width: 200%;
+  height:135%;
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 800px;
-  top: 55%;
 }
 
-.dummy-movie{
+.frame{
+  width: 95%;
+  height: 105%;
   position: fixed;
-  left: 24%;
-  top: 17%;
-  width: 52%;
-  height: 66%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .body{
