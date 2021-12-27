@@ -209,9 +209,6 @@ export default {
   transform: scale(1.5, 1.5);
 }
 .result {
-  position: absolute;
-  top: 350px;
-  left: 0;
   visibility: hidden;
 }
 </style>
