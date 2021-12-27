@@ -21,33 +21,35 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap");
 .result2 {
   position: relative;
-  left: 550px;
+  margin: 150px auto;
+  display: block;
+  width: 732px;
 }
 .face {
   font-size: 80px;
   font-family: "Rammetto One", cursive;
   position: absolute;
-  top: -410px;
+  top: 100px;
   left: 550px;
 }
 .ad {
   font-size: 80px;
   font-family: "Rammetto One", cursive;
   position: absolute;
-  top: -310px;
+  top: 210px;
   left: 550px;
 }
 .time {
   font-size: 75px;
   font-family: "Rammetto One", cursive;
   position: absolute;
-  top: -150px;
+  bottom: 40px;
   left: 370px;
 }
 .msg {
   position: absolute;
   visibility: hidden;
-  top: -630px;
+  top: -110px;
   left: 230px;
   transform: scale(1.5, 1.5);
 }
