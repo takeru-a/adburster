@@ -3,7 +3,7 @@
       <div class="wrapper">
         <img class="newImg" src="../../assets/imgs/new.svg" alt="">
         <h1 class="topTitle">アドバスター</h1>
-        <img width="80%" src="../../assets/imgs/subTitle.svg" alt="">
+        <img class="topImg" width="80%" src="../../assets/imgs/subTitle.svg" alt="">
       </div>
     </div>
 </template>
@@ -26,13 +26,14 @@ export default {
   .wrapper {
     margin: 0 auto;
     width: 730px;
-    margin-bottom: 2%;
+    /* margin-bottom: 2%; */
     text-align: center;
   }
   .topTitle {
     position: absolute;
     top: 19%;
     margin: 0 100px; 
+    padding-bottom: 100px;
     letter-spacing: 0.1em;
     font-size: 90px;
     font-weight: 700;
@@ -50,7 +51,13 @@ export default {
   .newImg {
     position: absolute;
     top: 12%;
-    right: 29%;
+    right: 28%;
     width: 8%;
+  }
+  .topImg {
+    position: absolute;
+    top: 35%;
+    right: 23.5%;
+    width: 50%;
   }
 </style>
