@@ -2,13 +2,13 @@
   <div class="wrapper">
     <!-- クリック  @click="関数名"-->
     <router-link class="router-link" to="/story1">
-      <button @click="page" class="Bigbutton">{{story}}</button>
+      <button @click="page" class="Bigbutton one">{{story}}</button>
     </router-link>
     <br>
-    <button @click="showtoplay()" class="Bigbutton">{{way}}</button>
+    <button @click="showtoplay()" class="Bigbutton two">{{way}}</button>
     <br>
     <router-link class="router-link" to="/game/select">
-          <button @click="page" class="Bigbutton">{{play}}</button>
+          <button @click="page" class="Bigbutton three">{{play}}</button>
     </router-link>
   </div>
 </template>
@@ -47,19 +47,27 @@ export default {
     display: block;
     justify-content: space-between;
     align-items: center;
-    margin: 1.5% auto;
-    padding: 0.7em 0.4em;
-    width: 350px;
+    top: 100px;
+    left: 41%;
+    position: absolute;
+    padding: 0.4em 0.2em;
+    width: 300px;
     color: #fff;
     text-align: center;
     font-weight: 800;
-    font-size: 2.3em;
+    font-size: 2.1em;
     letter-spacing: 0.3em;
     box-shadow: 0px 1px 1px 1px rgba(0 0 0 / .4);
     border: 3px solid #111;
     border-radius: 8px;
     transition: 0.3s;
     background-color: #AF0000;
+  }
+  .two {
+    top: 220px;
+  }
+  .three {
+    top: 340px;
   }
   .Bigbutton:hover {
     text-decoration: none;
