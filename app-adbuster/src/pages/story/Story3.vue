@@ -60,11 +60,11 @@
     color: red;
     font-size: 70px;
     opacity: 0;
-  animation: fadein 2s ease 3s forwards;
+  animation: fadein 2s ease 3.5s forwards;
 }
 .sa{
   opacity: 0;
-  animation: fadein 2s ease 3.5s forwards;
+  animation: fadein 2s ease 4s forwards;
 }
 .next{
   color: white;
